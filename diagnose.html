@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>IMSA – Diagnose</title>
+<style>body{font:16px/1.6 system-ui,sans-serif;background:#000814;color:#e5e7eb;max-width:760px;margin:30px auto;padding:0 16px}
+button{background:#1e90ff;color:#fff;border:0;border-radius:999px;padding:10px 22px;font-size:1rem;cursor:pointer;margin:6px 6px 6px 0}
+pre{background:#0d1b2e;border-radius:10px;padding:14px;white-space:pre-wrap}.ok{color:#4ade80}.bad{color:#f87171}</style></head>
+<body><h1>🔧 IMSA – Connection test</h1>
+<p>This checks login, the users record and article saving, and shows the exact problem.</p>
+<button id="login">1. Sign in with Google</button><button id="run">2. Run test</button>
+<pre id="out">Press "Sign in", then "Run test".</pre>
+<script type="module">
+import * as F from "./js/fb.js";
+const out = document.getElementById("out"), log = (ok, m) => out.innerHTML += `\n<span class="${ok ? "ok" : "bad"}">${ok ? "✅" : "❌"} ${m}</span>`;
+const hint = e => e.code === "permission-denied" ? "→ Firestore RULES are not the new ones. Firebase → Firestore → Rules: paste the rules from firestore.rules and press Publish."
+  : e.code === "auth/unauthorized-domain" ? "→ Firebase → Authentication → Settings → Authorized domains: add your github.io domain."
+  : /api-key/i.test(e.code + e.message) ? "→ The apiKey in js/firebase.js is wrong or still PASTE_YOUR_API_KEY_HERE."
+  : e.code === "auth/operation-not-allowed" ? "→ Enable Google in Firebase → Authentication → Sign-in method."
+  : "→ " + (e.code || e.message);
+document.getElementById("login").onclick = async () => { try { await F.login(); out.textContent = "Signed in as " + F.me.name + " (role: " + F.me.role + ")"; } catch (e) { out.textContent = "❌ Login failed: " + e.code + "\n" + hint(e); } };
+document.getElementById("run").onclick = async () => {
+  out.textContent = "Running…"; await F.ready;
+  if (!F.me) return log(false, "Not signed in (or the users record could not be created). Press button 1 first.");
+  log(true, `Signed in as ${F.me.name}, role: ${F.me.role}`);
+  try { await F.mine(); log(true, "Can read my articles"); } catch (e) { log(false, "Reading articles failed: " + e.code + "\n" + hint(e)); }
+  try { const r = await F.createArticle({ title: "Test article (auto-deleted)", category: "Other", image: "", content: "test $x^2$" });
+    log(true, "Can create an article (saved as pending)"); await F.del(r.id); log(true, "Can delete it again"); }
+  catch (e) { log(false, "Saving an article failed: " + e.code + "\n" + hint(e)); }
+  log(F.me.role === "admin", F.me.role === "admin" ? "You are an admin" : "You are a normal user (set role = admin in Firestore → users to approve articles)");
+};
+</script></body></html>

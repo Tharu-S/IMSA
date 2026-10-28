@@ -1,0 +1,1395 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMSA | Learn More</title>
+    <link rel="icon" href="images/imsa-logo.jpeg">
+    <script>
+        window.MathJax = {
+            tex: { displayMath: [['$$', '$$']] },
+            chtml: { displayAlign: 'left' }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="css/Learn_more.css">
+<script>if(localStorage.getItem("ms_theme")==="light")document.documentElement.dataset.theme="light"</script>
+<link rel="stylesheet" href="css/site.css">
+</head>
+
+<body>
+
+    <button class="ms-burger" onclick="msToggleNav()" aria-label="Menu">☰</button>
+    <aside class="ms-side" id="msSide">
+        <div class="ms-top"><a href="index.html" class="ms-brand"><img src="images/imsa-logo.jpeg" alt="IMSA"><span>IMSA</span></a><button class="ms-x" onclick="msToggleNav()" aria-label="Close menu">«</button></div>
+        <nav class="ms-links nav-anim">
+            <a href="index.html"><i>🏠</i>Home</a>
+            <a href="topics.html"><i>📚</i>Topics</a>
+            <a href="practice.html"><i>✏️</i>Practice</a>
+            <a href="calculators.html"><i>🧮</i>Calculators</a>
+            <a href="articles.html"><i>📝</i>Articles</a>
+            <a href="about.html"><i>ℹ️</i>About Us</a>
+            <a href="admin.html" id="nav-admin" style="display:none;"><i>🛡️</i>Admin</a>
+        </nav>
+        <div class="ms-bottom">
+            <a href="login.html" id="nav-login"><i>🔑</i>Login</a>
+            <a href="#" id="nav-logout" style="display:none;" onclick="handleLogout()"><i>🚪</i>Logout</a>
+            <button id="themeBtn" class="ms-theme" title="Dark / Light mode">🌙</button>
+        </div>
+    </aside>
+
+    <button onclick="scrollToTop()" id="scrollBtn">⮝</button>
+
+    <section class="hero">
+        <h2>Mathematics Topics</h2>
+        <p>
+            Learn Mathematics step by step in English & Sinhala
+            <br>
+            ඉංග්‍රීසි සහ සිංහල භාෂාවලින් ගණිතය ඉගෙන ගන්න
+        </p>
+    </section>
+
+    <section class="topic" id="Algebra">
+        <h2>📘 Algebra (වීජගණිතය)</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Linear Equations</h3>
+                <p>A Linear Equation is an equation where the highest power of the variable (usually x) is 1. When
+                    graphed, it forms a straight line.
+                    <br>විචල්‍යයේ ඉහළම බලය 1 වන සමීකරණ මෙයට අයත් වේ. මෙය ප්‍රස්තාරගත කළ විට සරල රේඛාවක් ලැබෙන බැවින්
+                    මෙයට "රේඛීය සමීකරණ" යැයි කියනු ලැබේ.
+                </p>
+                <span>
+                    <ul>
+                        <br>
+                        <li>Standard Form: ax + b = 0</li>
+                        <br>
+                        <li>Example: 2x + 5 = 11</li>
+                        <br>
+                        <li>Solution: 2x = 6 ⇒ x = 3</li>
+                    </ul>
+                </span>
+            </div>
+            <div class="card">
+                <h3>Quadratic Equations</h3>
+                <p>A Quadratic Equation is an equation where the highest power of the variable is 2. Its graph is a
+                    curve called a parabola.
+                    <br>මෙහි විචල්‍යයේ ඉහළම බලය 2 කි. මෙහි ප්‍රස්තාරය "පරාවලයක්" ලෙස හඳුන්වන වක්‍රයකි.
+                </p>
+                <span>
+                    <ul>
+                        <br>
+                        <li>Standard Form: ax² + bx + c = 0 (where a ≠ 0)</li>
+                        <br>
+                        <li>Example: x² - 5x + 6 = 0</li>
+                        <br>
+                        <li>Solving Methods:</li>
+                        <ol>
+                            <br>
+                            <li style="color: white;">Factorization (සාධක සෙවීම):</li>
+                            (x - 2)(x - 3) = 0
+                            <br>x - 2 = 0 ⇒ x = 2 or x - 3 = 0 ⇒ x = 3<br>
+                            <br>
+                            <li style="color: white;">Quadratic Formula (සූත්‍රය භාවිතය):</li>
+                            <br><math display="block">
+                                <mrow>
+                                    <mi>x</mi>
+                                    <mo>=</mo>
+                                    <mfrac>
+                                        <mrow>
+                                            <mrow>
+                                                <mo>−</mo>
+                                                <mi>b</mi>
+                                            </mrow>
+                                            <mo>±</mo>
+                                            <msqrt>
+                                                <mrow>
+                                                    <msup>
+                                                        <mi>b</mi>
+                                                        <mn>2</mn>
+                                                    </msup>
+                                                    <mo>−</mo>
+                                                    <mrow>
+                                                        <mn>4</mn>
+                                                        <mo>⁢</mo>
+                                                        <mi>a</mi>
+                                                        <mo>⁢</mo>
+                                                        <mi>c</mi>
+                                                    </mrow>
+                                                </mrow>
+                                            </msqrt>
+                                        </mrow>
+                                        <mrow>
+                                            <mn>2</mn>
+                                            <mo>⁢</mo>
+                                            <mi>a</mi>
+                                        </mrow>
+                                    </mfrac>
+                                </mrow>
+                            </math>
+                            <br>b2-4ac;
+                            <br>&nbsp;&nbsp;&nbsp;if value is positive, 2 real roots
+                            <br>&nbsp;&nbsp;&nbsp;if value is negative, no real roots
+                            <br>&nbsp;&nbsp;&nbsp;if value is zero, 1 real root
+                            <br><math display="block">
+                                <mrow>
+                                    <mi>x</mi>
+                                    <mo>=</mo>
+                                    <mfrac>
+                                        <mrow>
+                                            <mrow>
+                                                <mo>−</mo>
+                                                <mi>(-5)</mi>
+                                            </mrow>
+                                            <mo>±</mo>
+                                            <msqrt>
+                                                <mrow>
+                                                    <msup>
+                                                        <mi>(-5)</mi>
+                                                        <mn>2</mn>
+                                                    </msup>
+                                                    <mo>−</mo>
+                                                    <mrow>
+                                                        <mn>4</mn>
+                                                        <mo>⁢</mo>
+                                                        <mi>(1)</mi>
+                                                        <mo>⁢</mo>
+                                                        <mi>(6)</mi>
+                                                    </mrow>
+                                                </mrow>
+                                            </msqrt>
+                                        </mrow>
+                                        <mrow>
+                                            <mn>2</mn>
+                                            <mo>⁢</mo>
+                                            <mi>(1)</mi>
+                                        </mrow>
+                                    </mfrac>
+                                </mrow>
+                            </math>
+                            <br><math display="block">
+                                <mrow>
+                                    <mi>x</mi>
+                                    <mo>=</mo>
+                                    <mfrac>
+                                        <mrow>
+                                            <mrow>
+                                                <mi>5</mi>
+                                            </mrow>
+                                            <mo>±</mo>
+                                            <msqrt>
+                                                <mrow>
+                                                    <mi>1</mi>
+                                                </mrow>
+                                            </msqrt>
+                                        </mrow>
+                                        <mrow>
+                                            <mn>2</mn>
+                                        </mrow>
+                                    </mfrac>
+                                </mrow>
+                            </math>
+                            <br><math display="block">
+                                <mrow>
+                                    <mi>x</mi>
+                                    <mo>=</mo>
+                                    <mfrac>
+                                        <mrow>
+                                            <mrow>
+                                                <mi>5</mi>
+                                            </mrow>
+                                            <mo>+</mo>
+                                            <mrow>
+                                                <mi>1</mi>
+                                            </mrow>
+                                        </mrow>
+                                        <mrow>
+                                            <mn>2</mn>
+                                        </mrow>
+                                    </mfrac>
+                                </mrow>
+                                <mrow>
+                                    <mi>&nbsp;&nbsp;or x</mi>
+                                    <mo>=</mo>
+                                    <mfrac>
+                                        <mrow>
+                                            <mrow>
+                                                <mi>5</mi>
+                                            </mrow>
+                                            <mo>-</mo>
+                                            <mrow>
+                                                <mi>1</mi>
+                                            </mrow>
+                                        </mrow>
+                                        <mrow>
+                                            <mn>2</mn>
+                                        </mrow>
+                                    </mfrac>
+                                </mrow>
+                            </math>
+                            <br><math display="block">
+                                <mrow>
+                                    <mi>x</mi>
+                                    <mo>=</mo>
+                                    <mi>3</mi>
+                                </mrow>
+                                <mrow>
+                                    <mi>&nbsp;&nbsp;or x</mi>
+                                    <mo>=</mo>
+                                    <mi>2</mi>
+                                </mrow>
+                            </math>
+                        </ol>
+                    </ul>
+                </span>
+            </div>
+            <div class="card">
+                <h3>Polynomials</h3>
+                <p>A Polynomial is an expression consisting of variables and coefficients, involving operations like
+                    addition, subtraction, and multiplication, with non-negative integer exponents.
+                    <br>බහුපදයක් යනු විචල්‍යයන් සහ සංගුණක එකතු කිරීම, අඩු කිරීම සහ ගුණ කිරීම මගින් සම්බන්ධ වූ
+                    ප්‍රකාශනයකි. මෙහි බලයන් සැමවිටම ධන පූර්ණ සංඛ්‍යා විය යුතුය.
+                </p>
+                <span>
+                    <ul>
+                        <br>
+                        <li>Exponents must be positive whole numbers (0, 1, 2...). (බලයන් සැමවිටම ධන පූර්ණ සංඛ්‍යා විය
+                            යුතුය).</li>
+                        <br>
+                        <li>No division by variables (e.g.: <math>
+                                <mfrac>
+                                    <mrow>
+                                        <mi>1</mi>
+                                    </mrow>
+                                    <mrow>
+                                        <mn>x</mn>
+                                    </mrow>
+                                </mfrac>
+                            </math> is not allowed). (විචල්‍යයකින් බෙදීම සිදු නොවිය යුතුය).</li>
+                        <br>
+                        <li>No square roots of variables (e.g. : √x is not allowed). (විචල්‍යය වර්ගමූලයක් ඇතුළත නොතිබිය
+                            යුතුය).</li>
+                    </ul>
+                </span>
+                <br>
+                <h4>Parts of a Polynomial (බහුපදයක කොටස්) </h4>
+                <br>
+                <p style="text-align: center;">5x³ - 2x² + x - 7</p>
+                <ul>
+                    <br>
+                    <li><strong>Terms (පද): </strong>These are the parts separated by + or - signs. Here we have 4
+                        terms.</li>
+                    <br>
+                    <li><strong>Leading Term: </strong>The term with the highest power (5x³).</li>
+                    <br>
+                    <li><strong>Degree (මාත්‍රාව): </strong>The highest exponent of the variable. In this case, the
+                        degree is 3.</li>
+                    <br>
+                    <li><strong>Leading Coefficient (ප්‍රධාන සංගුණකය):</strong> The number multiplying the highest power
+                        variable (which is 5)</li>
+                    <br>
+                    <li><strong>Constant (නියතය): </strong>The number without a variable (-7).</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>9 Basic Functions</h3>
+                <div class="basic-functions">
+                    <div class="functions-grid">
+                        <div class="func" onclick="openFunc('linear')">
+                            <p>Linear Function</p>
+                            <img src="images/linear.png">
+                        </div>
+                        <div class="func" onclick="openFunc('constant')">
+                            <p>Constant Function</p>
+                            <img src="images/constant.png">
+                        </div>
+                        <div class="func" onclick="openFunc('absolute')">
+                            <p>Absolute Value Function</p>
+                            <img src="images/absolute.png">
+                        </div>
+                        <div class="func" onclick="openFunc('logarithmic')">
+                            <p>Logarithmic Function</p>
+                            <img src="images/logarithmic.png">
+                        </div>
+                        <div class="func" onclick="openFunc('exponential')">
+                            <p>Exponential Function</p>
+                            <img src="images/exponential.png">
+                        </div>
+                        <div class="func" onclick="openFunc('reciprocal')">
+                            <p>Reciprocal Function</p>
+                            <img src="images/reciprocal.png">
+                        </div>
+                        <div class="func" onclick="openFunc('goniometric')">
+                            <p>Goniometric Function</p>
+                            <img src="images/goniometric.png">
+                        </div>
+                        <div class="func" onclick="openFunc('quadratic')">
+                            <p>Quadratic Function</p>
+                            <img src="images/quadratic.png">
+                        </div>
+                        <div class="func" onclick="openFunc('cubing')">
+                            <p>Cubing Function</p>
+                            <img src="images/cubing.png">
+                        </div>
+                    </div>
+                    <div class="function-desc">
+                        <div id="linear" class="desc"><span>The linear function produces a straight line on a graph. Its
+                                general form is y = mx + b, where 'm' represents the slope, and 'b' is the y-intercept.
+                                <br><br>රේඛීය ශ්‍රිතයක් මගින් ප්‍රස්ථාරයක සරල රේඛාවක් නිර්මාණය වේ. එහි පොදු සමීකරණය y =
+                                mx + b වේ. මෙහි 'm' මගින් රේඛාවේ අනුක්‍රමණය නිරූපණය වේ. 'b' මගින් y-අන්තඃඛණ්ඩය එනම්,
+                                රේඛාව y-අක්ෂය කැපී යන ලක්ෂ්‍යය නිරූපණය වේ.</span></div>
+                        <div id="constant" class="desc"><span>The constant function has a horizontal line as its graph.
+                                Its equation is y = c, where 'c' is a constant. For every input 'x', the output is
+                                always the same. <br><br>නියත ශ්‍රිතයක ප්‍රස්ථාරය තිරස් රේඛාවකි. එහි සමීකරණය y = c වන
+                                අතර, මෙහි 'c' යනු නියත අගයකි. මෙහිදී 'x' සඳහා ලබාදෙන ඕනෑම ආදානයකට ලැබෙන ප්‍රතිදානය
+                                සැමවිටම එකම අගයක් ගනී.</span></div>
+                        <div id="absolute" class="desc"><span>The absolute value function forms a V-shape, with its
+                                vertex at the origin. This function returns the non-negative value of a number,
+                                regardless of its sign. <br><br>නිරපේක්ෂ අගය ශ්‍රිතය මූල ලක්ෂ්‍යයේ (origin) ශීර්ෂය
+                                පිහිටන පරිදි 'V' හැඩයක් ගනී. මෙම ශ්‍රිතය මගින් ඕනෑම සංඛ්‍යාවක ලකුණ (+ හෝ -) නොසලකා, එහි
+                                ධන අගය පමණක් ලබා දෙයි.</span></div>
+                        <div id="logarithmic" class="desc"><span>The logarithmic function is the inverse of the
+                                exponential function. It increases at a decreasing rate, meaning the curve flattens out
+                                as 'x' grows larger. The graph has a vertical asymptote and passes through the point
+                                (1,0). <br><br>ලඝුගණක ශ්‍රිතය යනු ඝාතීය ශ්‍රිතයේ ප්‍රතිලෝමයයි. මෙය ක්‍රමයෙන් අඩුවන
+                                වේගයකින් ඉහළ යන බැවින්, 'x' අගය විශාලවත්ම ප්‍රස්ථාරයේ වක්‍රය තැටි ගැසෙන ස්වභාවයක් ගනී.
+                                මෙම ප්‍රස්ථාරයට සිරස් ස්පර්ශෝන්මුඛයක් ඇති අතර එය සැමවිටම (1,0) ලක්ෂ්‍යය හරහා ගමන්
+                                කරයි.</span></div>
+                        <div id="exponential" class="desc"><span>The exponential function is characterized by its rapid
+                                growth, where the rate of change is proportional to the function's current value. It is
+                                commonly used to model population growth, compound interest, and radioactive decay.
+                                <br><br>ඝාතීය ශ්‍රිතය එහි ඉතා වේගවත් වර්ධනය මගින් හඳුනාගත හැක. මෙහිදී විචලනය වීමේ වේගය
+                                ශ්‍රිතයේ පවතින අගයට සමානුපාතික වේ. මෙය සාමාන්‍යයෙන් ජනගහන වර්ධනය, සංයුක්ත පොලිය සහ
+                                විකිරණශීලී ක්ෂය වීම වැනි දෑ ආකෘතිකරණය කිරීමට බහුලව භාවිතා වේ.</span></div>
+                        <div id="reciprocal" class="desc"><span>The reciprocal function is defined as y = <math>
+                                    <mfrac>
+                                        <mrow>
+                                            <mi>1</mi>
+                                        </mrow>
+                                        <mrow>
+                                            <mn>x</mn>
+                                        </mrow>
+                                    </mfrac>
+                                </math>. Its graph consists of two separate branches, one in the first quadrant and the
+                                other in the third, with both horizontal and vertical asymptotes. <br><br>පරස්පර ශ්‍රිතය
+                                y = <math>
+                                    <mfrac>
+                                        <mrow>
+                                            <mi>1</mi>
+                                        </mrow>
+                                        <mrow>
+                                            <mn>x</mn>
+                                        </mrow>
+                                    </mfrac>
+                                </math> ලෙස අර්ථ දැක්වේ. මෙහි ප්‍රස්ථාරය එකිනෙකින් වෙන් වූ ශාඛා දෙකකින් සමන්විත වන අතර,
+                                ඉන් එකක් පළමු චතුරස්‍රයේත් අනෙක තුන්වන චතුරස්‍රයේත් පිහිටයි. මෙම ප්‍රස්ථාරයට තිරස් මෙන්ම
+                                සිරස් ස්පර්ශෝන්මුඛ පවතී.</span></div>
+                        <div id="goniometric" class="desc"><span>The goniometric, or trigonometric function, like sine
+                                or cosine, has a periodic, wave-like shape. This repeating pattern is useful in
+                                describing cyclical phenomena such as sound waves and oscillations. <br><br>සයින් හෝ
+                                කොසයින් වැනි ත්‍රිකෝණමිතික ශ්‍රිත සඳහා ආවර්තිත, තරංගමය හැඩයක් පවතී. මෙම නැවත නැවත සිදුවන
+                                රටාව ශබ්ද තරංග සහ දෝලනය වැනි චක්‍රීය සංසිද්ධීන් විස්තර කිරීමට ඉතා ප්‍රයෝජනවත් වේ.</span>
+                        </div>
+                        <div id="quadratic" class="desc"><span>The quadratic function is a polynomial of degree two, and
+                                its graph is a parabola. The parabola can open upwards or downwards, depending on the
+                                sign of the leading coefficient. <br><br>වර්ගජ ශ්‍රිතයක් යනු දෙවන අංශකයේ බහුපද ශ්‍රිතයක්
+                                වන අතර එහි ප්‍රස්ථාරය පරාවලයක් ලෙස හැඳින්වේ. ප්‍රධාන සංගුණකයේ ලකුණ (+ හෝ -) අනුව මෙම
+                                පරාවලය ඉහළට හෝ පහළට විවෘත වේ.</span></div>
+                        <div id="cubing" class="desc"><span>The cubing function, or cubic function, is a third-degree
+                                polynomial. Its graph has a distinct S-shape, passing through the origin and extending
+                                to both positive and negative infinity. <br><br>ඝනජ ශ්‍රිතය යනු තෙවන අංශකයේ බහුපද
+                                ශ්‍රිතයකි. මෙහි ප්‍රස්ථාරයට පැහැදිලි 'S' හැඩයක් ඇති අතර, එය මූල ලක්ෂ්‍යය හරහා ගමන්
+                                කරමින් ධන සහ සෘණ අනන්තය දක්වා විහිදී යයි.</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="topic" id="Geometry">
+        <h2>📐 Geometry (ජ්‍යාමිතිය)</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Angles</h3>
+                <p>An angle is formed when two lines meet at a common point called a vertex.
+                    <br>සරල රේඛා දෙකක් එකිනෙක හමුවන ලක්ෂ්‍යයකදී (ශීර්ෂය) කෝණයක් සෑදේ.
+                </p>
+                <span>
+                    <ul>
+                        <br>
+                        <li>Acute Angle (සුළු කෝණය): Less than 90°.</li>
+                        <br>
+                        <li>Right Angle (සෘජු කෝණය): Exactly 90°.</li>
+                        <br>
+                        <li>Obtuse Angle (මහා කෝණය): Between 90° and 180°.</li>
+                        <br>
+                        <li>straight Angle (සරල කෝණය): Exactly 180°.</li>
+                        <br>
+                        <li>Reflex Angle (පරාවර්තී කෝණය): Greater than 180°.</li>
+                    </ul>
+                </span>
+                <br><br>
+                <h3 style="text-decoration: underline; color:white;">Angle Theorems (කෝණ පිළිබඳ ප්‍රමේයයන්)</h3>
+                <ul>
+                    <br>
+                    <li><strong>Complementary Angles (අනුපූරක කෝණ):</strong>
+                        <p>When the sum of two angles is equal to 90°. <br>(කෝණ දෙකක එකතුව 90° ක් වන විට.)</p>
+                    </li>
+                    <br>
+                    <li><strong>Supplementary Angles (පරිපූරක කෝණ):</strong>
+                        <p>When the sum of two angles is equal to 180°. <br>(කෝණ දෙකක එකතුව 180° ක් වන විට.)</p>
+                    </li>
+                    <br>
+                    <li><strong>Angles on a Straight Line:</strong>
+                        <p>The sum is always 180°.<br> (සරල රේඛාවක් මත පිහිටි කෝණවල එකතුව 180° කි.)</p>
+                    </li>
+                    <br>
+                    <li><strong>Vertically Opposite Angles:</strong>
+                        <p> When two lines cross, opposite angles are equal.<br> (සරල රේඛා දෙකක් කැපී ගිය විට සෑදෙන
+                            ප්‍රතිමුඛ කෝණ එකිනෙකට සමාන වේ.)</p>
+                    </li>
+                    <br>
+                    <li><strong>Angles at a Point: </strong>
+                        <p>The sum of all angles around a point is 360°. <br>(ලක්ෂ්‍යයක් වටා ඇති සියලුම කෝණවල එකතුව 360°
+                            කි.)</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Triangles</h3>
+                <p>A triangle is a closed shape with 3 sides and 3 angles. The sum of interior angles is always 180°
+                    <br>ත්‍රිකෝණයකට පාද 3ක් සහ කෝණ 3ක් ඇත. ඕනෑම ත්‍රිකෝණයක ඇතුළු කෝණවල එකතුව සැමවිටම 180° කි.
+                </p>
+                <br>
+                <p style="text-decoration: underline; font-weight: bold;">Types by Sides (පාද අනුව වර්ග):</p>
+                <span>
+                    <ul>
+                        <li>Equilateral (සමපාද): All sides equal.</li>
+                        <br>
+                        <li>Isosceles (සමද්වීපාද): Two sides equal.</li>
+                        <br>
+                        <li>Scalene (විෂමපාද): No sides equal.</li>
+                    </ul>
+                </span>
+                <br>
+                <p style="text-decoration: underline; font-weight: bold;">Types by Angles (කෝණ අනුව වර්ග):</p>
+                <span>
+                    <ul>
+                        <li>Right-angled (සෘජුකෝණී): Has one 90° angle.</li>
+                        <br>
+                        <li>Acute-angled (සුළුකෝණී): All angles < 90°.</li>
+                                <br>
+                        <li>Obtuse-angled (මහාකෝණී): One angle > 90°.</li>
+                    </ul>
+                </span>
+                <br><br>
+                <h3 style="text-decoration: underline; color: white;">Trigonometry Theorems (ත්‍රිකෝණමිතිය පිළිබඳ
+                    ප්‍රමේයයන්)</h3>
+                <ul>
+                    <br>
+                    <li><strong>Mid-point Theorem (මධ්‍ය ලක්ෂ්‍ය ප්‍රමේයය):</strong>
+                        <p> The line segment connecting the midpoints of two sides of a triangle is parallel to the
+                            third side and is exactly half the length of the third side. <br>(ත්‍රිකෝණයක පාද දෙකක මධ්‍ය
+                            ලක්ෂ්‍යයන් යා කරන සරල රේඛාව, තුන්වන පාදයට සමාන්තර වන අතර එහි දිග තුන්වන පාදයේ දිගින් අඩක්
+                            වේ.)</p>
+                    </li>
+                    <br>
+                    <li><strong>Pythagoras Theorem (පයිතගරස් ප්‍රමේයය):</strong>
+                        <p> In a right-angled triangle, the square of the hypotenuse (the side opposite the right angle)
+                            is equal to the sum of the squares of the other two sides. <br>(සෘජුකෝණී ත්‍රිකෝණයක කර්ණයෙහි
+                            (සෘජුකෝණයට ඉදිරියෙන් ඇති දිගම පාදය) වර්ගය, අනෙක් පාද දෙකෙහි වර්ගවල එකතුවට සමාන වේ.)</p>
+                    </li>
+                    <br>
+                    <li><strong>Congruency of Triangles (ත්‍රිකෝණවල සර්වසමතාව):</strong>
+                        <p> Two triangles are congruent if they are identical in shape and size. There are four main
+                            cases to prove congruency.<br> (ත්‍රිකෝණ දෙකක් හැඩයෙන් සහ ප්‍රමාණයෙන් එකිනෙකට සම්පූර්ණයෙන්ම
+                            සමාන නම් ඒවා සර්වසම ත්‍රිකෝණ වේ. සර්වසමතාව ඔප්පු කිරීමට ප්‍රධාන අවස්ථා 4ක් ඇත)</p>
+                    </li>
+                    <ol><span>
+                            <br>
+                            <li><strong>SSS (Side-Side-Side) / පා.පා.පා (පාදය-පාදය-පාදය): </strong>
+                                <p>All three sides of one triangle are equal to the three sides of another.<br> (එක්
+                                    ත්‍රිකෝණයක පාද තුන අනෙක් ත්‍රිකෝණයේ පාද තුනට සමාන වීම.)</p>
+                            </li>
+                            <br>
+                            <li><strong>SAS (Side-Angle-Side) / පා.කෝ.පා (පාදය-කෝණය-පාදය):</strong>
+                                <p> Two sides and the included angle (the angle between them) are equal. <br>(පාද දෙකක්
+                                    සහ එම පාද අතර ඇති කෝණය සමාන වීම.)</p>
+                            </li>
+                            <br>
+                            <li><strong>AAS or ASA (Angle-Angle-Side) / කෝ.කෝ.පා (කෝණය-කෝණය-පාදය):</strong>
+                                <p>Two angles and a corresponding side are equal. <br>(කෝණ දෙකක් සහ එක් පාදයක් සමාන
+                                    වීම.)</p>
+                            </li>
+                            <br>
+                            <li><strong>RHS (Right angle-Hypotenuse-Side) / ක.පා.සී (කර්ණය-පාදය-සෘජුකෝණය):</strong>
+                                <p>In right-angled triangles, the hypotenuse and one other side are equal. <br>(සෘජුකෝණී
+                                    ත්‍රිකෝණ දෙකක කර්ණය සහ තවත් එක් පාදයක් සමාන වීම.)</p>
+                            </li>
+                        </span></ol>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Circles</h3>
+                <p>A circle is a set of points equidistant from a center point.
+                    <br>මධ්‍ය ලක්ෂ්‍යයක සිට සමාන දුරකින් පිහිටි ලක්ෂ්‍ය සමූහයකින් වෘත්තයක් සෑදේ.
+                </p>
+                <span>
+                    <ul>
+                        <br>
+                        <li>Chord (ජ්‍යාය): A line segment connecting two points on the edge.</li>
+                        <br>
+                        <li>Tangent (ස්පර්ශකය): A line that touches the circle at exactly one point.</li>
+                    </ul>
+                </span>
+                <br><br>
+                <h3 style="text-decoration: underline; color: white;">Circle Theorems (වෘත්ත ප්‍රමේයයන්)</h3>
+                <ul>
+                    <br>
+                    <li><strong>Angle at the Center:</strong>
+                        <p>The angle at the center is twice the angle at the circumference from the same arc.<br> (එකම
+                            චාපයකින් කේන්ද්‍රයේ සාදන කෝණය පරිධියේ සාදන කෝණය මෙන් දෙගුණයකි.)</p>
+                    </li>
+                    <br>
+                    <li><strong>Angle in a Semi-circle: </strong>
+                        <p>Any angle drawn from the diameter to the circumference is 90°. <br>(විෂ්කම්භය මගින් පරිධියේ
+                            සාදන කෝණය සැමවිටම 90° කි.)</p>
+                    </li>
+                    <br>
+                    <li><strong>Cyclic Quadrilateral:</strong>
+                        <p>Opposite angles of a quadrilateral inside a circle add up to 180°.<br> (චක්‍රීය චතුරස්‍රයක
+                            සම්මුඛ කෝණවල එකතුව 180° කි.)</p>
+                    </li>
+                    <br>
+                    <li><strong>Radius-Tangent Theorem: </strong>
+                        <p>A tangent is always perpendicular (90°) to the radius at the point of contact. <br>(ස්පර්ශ
+                            ලක්ෂ්‍යයේදී අරය සහ ස්පර්ශකය අතර කෝණය සැමවිටම 90° කි.)</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="topic" id="Trigonometry">
+        <h2>📊 Trigonometry (ත්‍රිකෝණමිතිය)</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Trigonometric Ratios</h3>
+                <p>In a right-angled triangle, we use the following ratios: <br>(සෘජුකෝණී ත්‍රිකෝණයකදී අපි මෙම අනුපාත
+                    භාවිතා කරමු:)</p>
+                <span>
+                    <ul>
+                        <li>
+                            <math>
+                                <mrow>
+                                    <mi>sin &theta;</mi>
+                                    <mo>=</mo>
+                                    <mfrac>
+                                        <mrow>
+                                            <mi>Opposite</mi>
+                                        </mrow>
+                                        <mrow>
+                                            <mn>Hypotenuse</mn>
+                                        </mrow>
+                                    </mfrac>
+                                    <mo>=</mo>
+                                    <mfrac>
+                                        <mrow>
+                                            <mi>සම්මුඛ පාදය</mi>
+                                        </mrow>
+                                        <mrow>
+                                            <mn>කර්ණය</mn>
+                                        </mrow>
+                                    </mfrac>
+                                </mrow>
+                            </math>
+                        </li>
+                        <br>
+                        <li>
+                            <math>
+                                <mrow>
+                                    <mi>cos &theta;</mi>
+                                    <mo>=</mo>
+                                    <mfrac>
+                                        <mrow>
+                                            <mi>Adjacent</mi>
+                                        </mrow>
+                                        <mrow>
+                                            <mn>Hypotenuse</mn>
+                                        </mrow>
+                                    </mfrac>
+                                    <mo>=</mo>
+                                    <mfrac>
+                                        <mrow>
+                                            <mi>බද්ධ පාදය</mi>
+                                        </mrow>
+                                        <mrow>
+                                            <mn>කර්ණය</mn>
+                                        </mrow>
+                                    </mfrac>
+                                </mrow>
+                            </math>
+                        </li>
+                        <br>
+                        <li>
+                            <math>
+                                <mrow>
+                                    <mi>tan &theta;</mi>
+                                    <mo>=</mo>
+                                    <mfrac>
+                                        <mrow>
+                                            <mi>Opposite</mi>
+                                        </mrow>
+                                        <mrow>
+                                            <mn>Adjacent</mn>
+                                        </mrow>
+                                    </mfrac>
+                                    <mo>=</mo>
+                                    <mfrac>
+                                        <mrow>
+                                            <mi>සම්මුඛ පාදය</mi>
+                                        </mrow>
+                                        <mrow>
+                                            <mn>බද්ධ පාදය</mn>
+                                        </mrow>
+                                    </mfrac>
+                                </mrow>
+                            </math>
+                        </li>
+                    </ul>
+                </span>
+            </div>
+            <div class="card">
+                <h3>Reciprocal Ratios</h3>
+                <p>These are the inverses of the basic ratios: <br>(මේවා මූලික අනුපාතවල පරස්පරයන් වේ.)</p>
+                <span>
+                    <ul>
+                        <li>
+                            <math>
+                                <mrow>
+                                    <mi>cosec &theta;</mi>
+                                    <mo>=</mo>
+                                    <mfrac>
+                                        <mrow>
+                                            <mi>1</mi>
+                                        </mrow>
+                                        <mrow>
+                                            <mn>sin &theta;</mn>
+                                        </mrow>
+                                    </mfrac>
+                                </mrow>
+                            </math>
+                        </li>
+                        <br>
+                        <li>
+                            <math>
+                                <mrow>
+                                    <mi>sec &theta;</mi>
+                                    <mo>=</mo>
+                                    <mfrac>
+                                        <mrow>
+                                            <mi>1</mi>
+                                        </mrow>
+                                        <mrow>
+                                            <mn>cos &theta;</mn>
+                                        </mrow>
+                                    </mfrac>
+                                </mrow>
+                            </math>
+                        </li>
+                        <br>
+                        <li>
+                            <math>
+                                <mrow>
+                                    <mi>cot &theta;</mi>
+                                    <mo>=</mo>
+                                    <mfrac>
+                                        <mrow>
+                                            <mi>1</mi>
+                                        </mrow>
+                                        <mrow>
+                                            <mn>tan &theta;</mn>
+                                        </mrow>
+                                    </mfrac>
+                                </mrow>
+                            </math>
+                        </li>
+                    </ul>
+                </span>
+            </div>
+            <div class="card">
+                <h3>Trigonometric Identities</h3>
+                <p>These formulas are true for any angle &theta;:<br>(මෙම සූත්‍ර ඕනෑම &theta; කෝණයක් සඳහා සත්‍ය වේ.)</p>
+                <span>
+                    <ul>
+                        <li>sin²θ + cos²θ = 1</li>
+                        <br>
+                        <li>
+                            <math>
+                                <mrow>
+                                    <mi>tan &theta;</mi>
+                                    <mo>=</mo>
+                                    <mfrac>
+                                        <mrow>
+                                            <mi>sin &theta;</mi>
+                                        </mrow>
+                                        <mrow>
+                                            <mn>cos &theta;</mn>
+                                        </mrow>
+                                    </mfrac>
+                                </mrow>
+                            </math>
+                        </li>
+                        <br>
+                        <li>1 + tan²θ = sec²θ</li>
+                        <br>
+                        <li>1 + cot²θ = cosec²θ</li>.
+                    </ul>
+                </span>
+            </div>
+            <div class="card">
+                <h3>Sine and Cosine Rules</h3>
+                <p>These are used for any type of triangle (not just right-angled):<br>(මේවා ඕනෑම ත්‍රිකෝණයක් සඳහා
+                    භාවිතා කළ හැක (සෘජුකෝණී නොවන ත්‍රිකෝණ සඳහාද).)</p>
+                <span>
+                    <ul>
+                        <li>Sine Rule (සයින් නීතිය):</li>
+                        <p style="color: white;">
+                            <math>
+                                <mrow>
+                                    <mfrac>
+                                        <mrow>
+                                            <mi>a</mi>
+                                        </mrow>
+                                        <mrow>
+                                            <mn>sin A</mn>
+                                        </mrow>
+                                    </mfrac>
+                                    <mo>=</mo>
+                                    <mfrac>
+                                        <mrow>
+                                            <mi>b</mi>
+                                        </mrow>
+                                        <mrow>
+                                            <mn>sin B</mn>
+                                        </mrow>
+                                    </mfrac>
+                                    <mo>=</mo>
+                                    <mfrac>
+                                        <mrow>
+                                            <mi>c</mi>
+                                        </mrow>
+                                        <mrow>
+                                            <mn>sin C</mn>
+                                        </mrow>
+                                    </mfrac>
+                                </mrow>
+                            </math>
+                        </p>
+                        <br>
+                        <li>Cosine Rule (කොසයින් නීතිය):</li>
+                        <p style="color: white;">a² = b² + c² -2bc cos A</p>
+                    </ul>
+                </span>
+            </div>
+            <div class="card">
+                <h3>Values for Specific Angles</h3>
+                <p>It is helpful to remember these common values:<br>(මෙම පොදු අගයන් මතක තබා ගැනීම ඉතා ප්‍රයෝජනවත් වේ.)
+                </p>
+                <span>
+                    <table border="2" style="text-align: center; width: 100%; ">
+                        <thead>
+                            <tr style="color: white;">
+                                <th>Angle (&theta;)</th>
+                                <th>sin &theta;</th>
+                                <th>cos &theta;</th>
+                                <th>tan &theta;</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><b>0&deg;</b></td>
+                                <td>0</td>
+                                <td>1</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td><b>30&deg;</b></td>
+                                <td><math>
+                                        <mfrac>
+                                            <mrow>
+                                                <mi>1 </mi>
+                                            </mrow>
+                                            <mrow>
+                                                <mn>2</mn>
+                                            </mrow>
+                                        </mfrac>
+                                    </math></td>
+                                <td><math>
+                                        <mfrac>
+                                            <mrow>
+                                                <mi>&radic;3 </mi>
+                                            </mrow>
+                                            <mrow>
+                                                <mn>2</mn>
+                                            </mrow>
+                                        </mfrac>
+                                    </math></td>
+                                <td><math>
+                                        <mfrac>
+                                            <mrow>
+                                                <mi>1 </mi>
+                                            </mrow>
+                                            <mrow>
+                                                <mn>&radic;3</mn>
+                                            </mrow>
+                                        </mfrac>
+                                    </math></td>
+                            </tr>
+                            <tr>
+                                <td><b>45&deg;</b></td>
+                                <td><math>
+                                        <mfrac>
+                                            <mrow>
+                                                <mi>1 </mi>
+                                            </mrow>
+                                            <mrow>
+                                                <mn>&radic;2</mn>
+                                            </mrow>
+                                        </mfrac>
+                                    </math></td>
+                                <td><math>
+                                        <mfrac>
+                                            <mrow>
+                                                <mi>1 </mi>
+                                            </mrow>
+                                            <mrow>
+                                                <mn>&radic;2</mn>
+                                            </mrow>
+                                        </mfrac>
+                                    </math></td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td><b>60&deg;</b></td>
+                                <td><math>
+                                        <mfrac>
+                                            <mrow>
+                                                <mi>&radic;3 </mi>
+                                            </mrow>
+                                            <mrow>
+                                                <mn>2</mn>
+                                            </mrow>
+                                        </mfrac>
+                                    </math></td>
+                                <td><math>
+                                        <mfrac>
+                                            <mrow>
+                                                <mi>1 </mi>
+                                            </mrow>
+                                            <mrow>
+                                                <mn>2</mn>
+                                            </mrow>
+                                        </mfrac>
+                                    </math></td>
+                                <td>&radic;3</td>
+                            </tr>
+                            <tr>
+                                <td><b>90&deg;</b></td>
+                                <td>1</td>
+                                <td>0</td>
+                                <td>Undefined (නිශ්චිත නැත)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <section class="topic" id="Calculus">
+        <h2>📈 Calculus (කලනය)</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Limits</h3>
+                <p>Limits are the foundation of calculus. They describe the value a function approaches as the input (x)
+                    gets closer and closer to a specific number.<br>(කලනයේ පදනම සීමා වේ. යම් ශ්‍රිතයකට ලබාදෙන අගය (x)
+                    කිසියම් නිශ්චිත අගයකට ඉතා ආසන්න වන විට, එම ශ්‍රිතය ලඟා වන අගය මෙයින් විස්තර වේ.)</p>
+                <span>
+                    <ul>
+                        <li>Notation: lim<sub>x → a</sub> f(x) = L</li>
+                        <br>
+                        <li>Meaning: As x approaches a, the function f(x) approaches L</li>
+                        <br>
+                        <li>Example: lim<sub>x → 2</sub> (x + 3) = 5</li>
+                    </ul>
+                </span>
+                <br>
+                <h3 style="color: white; text-decoration: underline;">Basic Algebraic Limits</h3>
+                <ul>
+                    <li>$$\lim_{x \to a} \frac{x^n - a^n}{x - a} = na^{n-1}$$</li>
+                    <li>$$\lim_{x \to a} c = c$$ (නියතයක සීමාව එම නියතයම වේ.)</li>
+                    <li>$$\lim_{x \to a} x = a$$</li>
+                </ul>
+                <br>
+                <h3 style="color: white; text-decoration: underline;">Trigonometric Limits</h3>
+                <ul>
+                    <li>$$\lim_{x \to 0} \frac{\sin x}{x} = 1$$</li>
+                    <li>$$\lim_{x \to 0} \frac{\tan x}{x} = 1$$</li>
+                    <li>$$\lim_{x \to 0} \cos x = 1$$</li>
+                </ul>
+                <br>
+                <h3 style="color: white; text-decoration: underline;">Exponential and Logarithmic Limits</h3>
+                <ul>
+                    <li>$$\lim_{x \to 0} \frac{e^x - 1}{x} = 1$$</li>
+                    <li>$$\lim_{x \to 0} \frac{\ln(1+x)}{x} = 1$$</li>
+                    <li>$$\lim_{n \to \infty} (1 + \frac{1}{n})^n = e$$</li>
+                </ul>
+                <br>
+                <h3 style="color: white; text-decoration: underline;">Properties of Limits</h3>
+                <ul>
+                    <li>$$\lim [f(x) + g(x)] = \lim f(x) + \lim g(x)$$</li>
+                    <li>$$\lim [f(x) \cdot g(x)] = \lim f(x) \cdot \lim g(x)$$</li>
+                    <li>$$\lim [\frac{f(x)}{g(x)}] = \frac{\lim f(x)}{\lim g(x)}$$ (මෙහි lim g(x) ≠ 0 විය යුතුය)</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Differentiation</h3>
+                <p>Differentiation is used to find the instantaneous rate of change or the gradient (slope) of a curve
+                    at a given point.<br>(අවකලනය මගින් යම් ප්‍රස්තාරයක හෝ ශ්‍රිතයක කිසියම් ලක්ෂ්‍යයක පවතින අනුක්‍රමණය හෝ
+                    වෙනස් වීමේ වේගය මැනිය හැකිය.)</p>
+                <span>
+                    <ul>
+                        <li> The derivative <math>
+                                <mfrac>
+                                    <mrow>
+                                        <mi>dy</mi>
+                                    </mrow>
+                                    <mrow>
+                                        <mn>dx</mn>
+                                    </mrow>
+                                </mfrac>
+                            </math> represents the slope of the tangent line.</li>
+                        <br>
+                        <li>Real-world use: If you have an equation for position, the derivative gives you velocity.
+                    </ul>
+                </span>
+                <br>
+                <h3 style="color: white; text-decoration: underline;">Basic Rules</h3>
+                <ul>
+                    <li>$$\frac{d}{dx}(c) = 0$$ (ඕනෑම නියත සංඛ්‍යාවක අවකලනය ශුන්‍ය වේ.)</li>
+                    <li>$$\frac{d}{dx}(x^n) = nx^{n-1}$$</li>
+                    <li>$$\frac{d}{dx}(cf(x)) = c \cdot f'(x)$$</li>
+                </ul>
+                <br>
+                <h3 style="color: white; text-decoration: underline;">Trigonometric Differentiation</h3>
+                <ul>
+                    <li>$$\frac{d}{dx}(\sin x) = \cos x$$</li>
+                    <li>$$\frac{d}{dx}(\cos x) = -\sin x$$</li>
+                    <li>$$\frac{d}{dx}(\tan x) = \sec^2 x$$</li>
+                </ul>
+                <br>
+                <h3 style="color: white; text-decoration: underline;">Exponential and Logarithmic Rules</h3>
+                <ul>
+                    <li>$$\frac{d}{dx}(e^x) = e^x$$ </li>
+                    <li>$$\frac{d}{dx}(\ln x) = \frac{1}{x}$$</li>
+                </ul>
+                <br>
+                <h3 style="color: white; text-decoration: underline;">Advanced Rules</h3>
+                <ul>
+                    <li>$$
+                        \frac{d}{dx}(uv) = u\frac{dv}{dx} + v\frac{du}{dx}
+                        $$
+                    </li>
+                    <li>
+                        $$
+                        \frac{d}{dx}\left(\frac{u}{v}\right) =
+                        \frac{v\frac{du}{dx} - u\frac{dv}{dx}}{v^2}
+                        $$
+                    </li>
+                    <li>
+                        $$
+                        \frac{dy}{dx} = \frac{dy}{du} \cdot \frac{du}{dx}
+                        $$
+                    </li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Integration</h3>
+                <p>Integration is the reverse process of differentiation. It is primarily used to find the area under a
+                    curve.<br>(අනුකලනය යනු අවකලනයේ ප්‍රතිවිරුද්ධ ක්‍රියාවලියයි. වක්‍රයකින් වට වූ වර්ගඵලය සෙවීමට මෙය
+                    ප්‍රධාන වශයෙන් භාවිතා කරයි.)</p>
+                <span>
+                    <ul>
+                        <li>Summing up tiny slices to find a total area.</li>
+                        <br>
+                        <li>Real-world use: If you have an equation for velocity, the integral gives you the distance
+                            traveled (ගමන් කළ දුර).</li>
+                    </ul>
+                </span>
+                <br>
+                <h3 style="color: white; text-decoration: underline;">Basic Algebraic Rules</h3>
+                <ul>
+                    <li>$$\int x^n \, dx = \frac{x^{n+1}}{n+1} + C \quad (n \neq -1)$$</li>
+                    <li>$$\int k \, dx = kx + C$$</li>
+                    <li>$$\int \frac{1}{x} \, dx = \ln|x| + C$$</li>
+                </ul>
+                <br>
+                <h3 style="color: white; text-decoration: underline;">Trigonometric Integration </h3>
+                <ul>
+                    <li>$$\int \sin x \, dx = -\cos x + C$$</li>
+                    <li>$$\int \cos x \, dx = \sin x + C$$</li>
+                    <li>$$\int \sec^2 x \, dx = \tan x + C$$</li>
+                    <li>$$\int \csc^2 x \, dx = -\cot x + C$$</li>
+                </ul>
+                <br>
+                <h3 style="color: white; text-decoration: underline;">Exponential Rules</h3>
+                <ul>
+                    <li>$$\int e^x \, dx = e^x + C$$</li>
+                    <li>$$\int a^x \, dx = \frac{a^x}{\ln a} + C$$</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="topic" id="Probability">
+        <h2>🎲 Probability (සම්භාවිතාව)</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Basic Probability</h3>
+                <p>It is the ratio of the number of favorable outcomes to the total number of possible
+                    outcomes.<br>සිදුවීමක් සිදුවීමේ හැකියාව මැනීම මෙහිදී සිදු කෙරේ. හිතකර ප්‍රතිඵල සංඛ්‍යාව මුළු
+                    ප්‍රතිඵල සංඛ්‍යාවෙන් බෙදීමෙන් මෙය ලබා ගනී.</p>
+                <span>
+                    <ul>
+                        <li>Formula: P(A) = <math>
+                                <mfrac>
+                                    <mrow>
+                                        <mi>n(A)</mi>
+                                    </mrow>
+                                    <mrow>
+                                        <mn>n(S)</mn>
+                                    </mrow>
+                                </mfrac>
+                            </math></li>
+                        <br>&nbsp;&nbsp;&nbsp;n(A) = Number of favorable outcomes
+                        <br>&nbsp;&nbsp;&nbsp;n(S) = Total possible outcomes
+                        <br><br>
+                        <li>Example: Imagine you roll a standard six-sided die. What is the probability of getting an
+                            even number (2, 4, or 6)?</li>
+                        <br> &nbsp;&nbsp;&nbsp;(S) = {1, 2, 3, 4, 5, 6} → n(S) = 6
+                        <br> &nbsp;&nbsp;&nbsp;(A) = {4} → n(A) = 1
+                        <br> &nbsp;&nbsp;&nbsp;p(A) = <math>
+                            <mfrac>
+                                <mrow>
+                                    <mi>1</mi>
+                                </mrow>
+                                <mrow>
+                                    <mn>6</mn>
+                                </mrow>
+                            </mfrac>
+                        </math>
+                    </ul>
+                </span>
+            </div>
+            <div class="card">
+                <h3>Conditional Probability</h3>
+                <p>This applies to dependent events where the occurrence of one event affects the probability of
+                    another.
+                    <br>එක් සිදුවීමක් සිදුවීම තවත් සිදුවීමක සම්භාවිතාව කෙරෙහි බලපාන අවස්ථා මෙයට අයත් වේ.
+                </p>
+                <span>
+                    <ul>
+                        <li>Formula: P(A|B) = <math>
+                                <mfrac>
+                                    <mrow>
+                                        <mi>P(A∩B)</mi>
+                                    </mrow>
+                                    <mrow>
+                                        <mn>P(B)</mn>
+                                    </mrow>
+                                </mfrac>
+                            </math></li>
+                        <br>&nbsp;&nbsp;&nbsp;P(A|B) = Probability of A occurring given B has happened
+                        <br>&nbsp;&nbsp;&nbsp;P(A∩B) = Probability of both A and B occurring together
+                        <br>&nbsp;&nbsp;&nbsp;P(B) = Probability of event B occurring
+                        <br><br>
+                        <li>Example: A bag contains 3 Red balls and 2 Blue balls. You draw two balls one after the other
+                            without replacement</li>
+                        <br> &nbsp;&nbsp;&nbsp;p(A|B) = <math>
+                            <mfrac>
+                                <mrow>
+                                    <mi>2</mi>
+                                </mrow>
+                                <mrow>
+                                    <mn>4</mn>
+                                </mrow>
+                            </mfrac>
+                        </math> = <math>
+                            <mfrac>
+                                <mrow>
+                                    <mi>1</mi>
+                                </mrow>
+                                <mrow>
+                                    <mn>2</mn>
+                                </mrow>
+                            </mfrac>
+                        </math>
+                    </ul>
+                </span>
+            </div>
+            <div class="card">
+                <h3>Random Variables</h3>
+                <br>
+                <p>Discrete Random Variables <br>(විවික්ත අහඹු විචල්‍ය)</p>
+                <span>
+                    <ul>
+                        <li>
+                            <p>These are variables that have a finite or countable number of possible values. You can
+                                count them (1, 2, 3...).
+                        </li>(නිශ්චිතව ගණන් කළ හැකි අගයන් සහිත විචල්‍යයන් වේ.)</p>
+                        <br>
+                        <li>For Discrete variables, we use a Probability Mass Function (PMF)</li>
+                        <br>
+                        <li>Example: The number of students in a class or the number of heads in a coin toss.</li>
+                    </ul>
+                </span>
+                <br>
+                <p>Continuous Random Variables <br>(අඛණ්ඩ අහඹු විචල්‍ය)</p>
+                <span>
+                    <ul>
+                        <li>
+                            <p>These variables can take any value within a given range or interval. They are usually
+                                measured rather than counted.
+                        </li>(දී ඇති පරාසයක් තුළ ඕනෑම අගයක් ගත හැකි විචල්‍යයන් වේ.)</p>
+                        <br>
+                        <li>For Continuous variables, we use a Probability Density Function (PDF)</li>
+                        <br>
+                        <li>Example: Measuring weight, height, or time.</li>
+                    </ul>
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <section class="topic" id="Statistics">
+        <h2>📉 Statistics (සංඛ්‍යාත්මක විද්‍යාව)</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Mean</h3>
+                <p>The mean is calculated by summing all the individual values in a data set and dividing that total by
+                    the number of values present.
+                    <br>දත්ත පද්ධතියක ඇති සියලුම අගයන්ගේ එකතුව, එම දත්ත සංඛ්‍යාවෙන් බෙදූ විට ලැබෙන සාමාන්‍ය අගය
+                    මධ්‍යන්‍යය ලෙස හැඳින්වේ.
+                </p>
+                <span>
+                    <ul>
+                        <li>Formula:</li>
+                        $$\bar{x} = \frac{\sum x_i}{n}$$
+                        <li>Example: Suppose a group of students scored the following marks in a small quiz: 10, 20, 20,
+                            30, and 70.</li>
+                        $$\frac{10+20+20+30+70}{5} = \frac{150}{5} = 30$$
+                    </ul>
+                </span>
+            </div>
+            <div class="card">
+                <h3>Median</h3>
+                <p>To find the median, you must first sort the data in ascending or descending order. If there is an odd
+                    number of values, the median is the middle one. If there is an even number, it is the average of the
+                    two middle values.
+                    <br>දත්ත ආරෝහණ හෝ අවරෝහණ පිළිවෙලට සැකසූ විට මැදින්ම ඇති අගය මධ්‍යස්ථය ලෙස හැඳින්වේ.
+                </p>
+                <span>
+                    <ul>
+                        <li>Example: Suppose we have the same scores from the previous example: 10, 20, 20, 30, 70.</li>
+                        <br>Arrange data: 10, 20, 20, 30, 70
+                        <br><br>Identify middle: Since there are 5 values, the 3rd value is the center
+                        <br><br>Result: Median = 20
+                    </ul>
+                </span>
+            </div>
+            <div class="card">
+                <h3>Mode</h3>
+                <p> The mode is the value that appears most often. A data set can have one mode, more than one mode
+                    (multimodal), or no mode at all if all values appear only once.
+                    <br>දත්ත පද්ධතියක වැඩිම වාර ගණනක් වාර්තා වී ඇති අගය මාතය ලෙස හැඳින්වේ.
+                </p>
+                <span>
+                    <ul>
+                        <li>Example: Suppose we have the same scores from the previous example: 10, 20, 20, 30, 70.</li>
+                        <br>Count frequencies: 10 (once), 20 (twice), 30 (once), 70 (once)
+                        <br><br>Identify most frequent: 20 appears the most
+                        <br><br>Result: Mode = 20
+                    </ul>
+                </span>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="topic" id="Vectors">
+        <h2>🧭 Vectors (ද‌ෛශික)</h2>
+
+        <div class="grid">
+            <div class="card">
+                <h3>Introduction to Vectors</h3>
+                <p>
+                    A Vector is a quantity that has both a magnitude (size) and a direction. Unlike scalars (like mass
+                    or time), you cannot describe a vector without saying which way it is pointing.
+                    <br>දෛශිකයක් යනු විශාලත්වයක් මෙන්ම දිශාවක් ද පවතින රාශියකි. ස්කන්ධය හෝ කාලය වැනි අදීශ රාශි මෙන් නොව,
+                    දෛශිකයක් විස්තර කිරීමේදී එය කුමන දිශාවකට යොමු වී ඇත්ද යන්න පැවසීම අත්‍යවශ්‍ය වේ.
+                </p>
+                <span>
+                    <ul>
+                        <li>Magnitude (විශාලත්වය): The length of the vector.</li>
+                        <br>
+                        <li>Direction (දිශාව): The orientation of the vector in space.</li>
+                    </ul>
+                </span>
+            </div>
+
+            <div class="card">
+                <h3>Types of Vectors</h3>
+                <p>
+                    There are several specific types of vectors used in mathematics and physics.
+                    <br>ගණිතයේදී සහ භෞතික විද්‍යාවේදී භාවිතා වන ප්‍රධාන දෛශික වර්ග කිහිපයකි.
+                </p>
+                <span>
+                    <ul>
+                        <li>
+                            <p><strong>Zero Vector (ශුන්‍ය දෛශිකය):</strong> A vector with zero magnitude and no
+                                specific direction (denoted as 0).</p>
+                        </li>
+                        <br>
+                        <li>
+                            <p><strong>Unit Vector (ඒකක දෛශිකය):</strong> A vector that has a magnitude of exactly 1.
+                                Standard unit vectors are î, ĵ, k̂ for the x, y, and z axes. <br>(විශාලත්වය හරියටම 1 ක්
+                                වන දෛශික ඒකක දෛශික ලෙස හැඳින්වේ.)</p>
+                        </li>
+                        <br>
+                        <li>
+                            <p><strong>Equal Vectors (සමාන දෛශික):</strong> Two vectors are equal if they have the same
+                                magnitude AND the same direction.<br>(දෛශික දෙකක විශාලත්වය සහ දිශාව යන දෙකම සමාන නම් ඒවා
+                                සමාන දෛශික වේ.)</p>
+                        </li>
+                    </ul>
+                </span>
+            </div>
+
+            <div class="card">
+                <h3>Vector Addition</h3>
+                <p>
+                    When adding two vectors, we find the resultant vector. If we have <strong>a</strong> =
+                    (x<sub>1</sub>, y<sub>1</sub>) and <strong>b</strong> = (x<sub>2</sub>, y<sub>2</sub>), then:
+                    <br>දෛශික දෙකක් එකතු කළ විට අපට සම්ප්‍රයුක්ත දෛශිකය ලැබේ.
+                </p>
+                <span><strong>a</strong> + <strong>b</strong> = (x<sub>1</sub> + x<sub>2</sub> , y<sub>1</sub> +
+                    y<sub>2</sub>)</span>
+            </div>
+
+            <div class="card">
+                <h3>Scalar Multiplication</h3>
+                <p>
+                    Multiplying a vector by a scalar (a number) changes its magnitude but usually keeps the same
+                    direction (or exactly opposite if the number is negative).
+                    <br>දෛශිකයක් සංඛ්‍යාවකින් (අදීශයකින්) ගුණ කළ විට එහි විශාලත්වය වෙනස් වේ.
+                </p>
+                <span>
+                    <ul>
+                        <li>Example: If <strong>v</strong> = 2î + 3ĵ, then 2<strong>v</strong> = 4î + 6ĵ .</li>
+                    </ul>
+                </span>
+            </div>
+
+            <div class="card">
+                <h3>Dot Product / Scalar Product</h3>
+                <p>
+                    The Dot Product of two vectors results in a scalar (a simple number), not another vector. It
+                    measures how much one vector points in the direction of another.
+                    <br>දෛශික දෙකක අදීශ ගුණිතයෙන් ලැබෙන්නේ තවත් දෛශිකයක් නොව අදීශයක් (සංඛ්‍යාවක්) පමණි.
+                </p>
+                <span>
+                    <ul>
+                        <li>Formula: <strong>a</strong> · <strong>b</strong> = |<strong>a</strong>| |<strong>b</strong>|
+                            cosθ</li>
+                    </ul><br>(Where &theta; is the angle between the two vectors)
+                </span>
+            </div>
+
+            <div class="card">
+                <h3>Applications of Vectors</h3>
+                <p>
+                    Vectors are essential in fields like physics, engineering, and computer graphics.
+                    <br>භෞතික විද්‍යාව, ඉංජිනේරු විද්‍යාව සහ පරිගණක ග්‍රැෆික්ස් වැනි ක්ෂේත්‍රවල දෛශික අත්‍යවශ්‍ය වේ.
+                </p>
+                <span>
+                    <ul>
+                        <li>Force (බලය): Pushing or pulling in a specific direction.</li>
+                        <br>
+                        <li>Velocity (ප්‍රවේගය): Speed in a given direction.</li>
+                        <br>
+                        <li>Displacement (විස්ථාපනය): Change in position from start to end.</li>
+                    </ul>
+                </span>
+            </div>
+        </div>
+    </section>
+
+
+    <footer>
+        <p>&copy; 2026 All Rights Reserved | IMSA</p>
+    </footer>
+
+    
+    <script>
+
+        function openFunc(id) {
+            document.querySelectorAll(".desc")
+                .forEach(d => d.classList.remove("active"));
+            document.getElementById(id).classList.add("active");
+        }
+
+        let mybutton = document.getElementById("scrollBtn");
+
+        window.onscroll = function () {
+            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                mybutton.style.display = "block";
+            } else {
+                mybutton.style.display = "none";
+            }
+        };
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        }
+
+        function updateAuthNav() {
+            const loggedIn = localStorage.getItem('ms_logged_in') === 'true';
+            document.getElementById('nav-login').style.display = loggedIn ? 'none' : 'inline-block';
+            document.getElementById('nav-logout').style.display = loggedIn ? 'inline-block' : 'none';
+        }
+        function handleLogout() {
+            localStorage.removeItem('ms_logged_in');
+            localStorage.removeItem('ms_user_email');
+            updateAuthNav();
+        }
+        updateAuthNav();
+
+        document.querySelectorAll('.nav-anim a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    document.querySelector('.nav-anim').classList.remove('active');
+                    document.querySelector('.hamburger').classList.remove('open');
+                }
+            });
+        });
+    </script>
+
+<script type="module" src="js/site.js"></script>
+</body>
+
+</html>

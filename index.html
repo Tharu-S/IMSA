@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMSA</title>
+    <link rel="icon" href="images/imsa-logo.jpeg">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+<script>if(localStorage.getItem("ms_theme")==="light")document.documentElement.dataset.theme="light"</script>
+<link rel="stylesheet" href="css/site.css">
+</head>
+
+<body>
+
+    <button class="ms-burger" onclick="msToggleNav()" aria-label="Menu">☰</button>
+    <aside class="ms-side" id="msSide">
+        <div class="ms-top"><a href="index.html" class="ms-brand"><img src="images/imsa-logo.jpeg" alt="IMSA"><span>IMSA</span></a><button class="ms-x" onclick="msToggleNav()" aria-label="Close menu">«</button></div>
+        <nav class="ms-links nav-anim">
+            <a href="index.html"><i>🏠</i>Home</a>
+            <a href="topics.html"><i>📚</i>Topics</a>
+            <a href="practice.html"><i>✏️</i>Practice</a>
+            <a href="calculators.html"><i>🧮</i>Calculators</a>
+            <a href="articles.html"><i>📝</i>Articles</a>
+            <a href="about.html"><i>ℹ️</i>About Us</a>
+            <a href="admin.html" id="nav-admin" style="display:none;"><i>🛡️</i>Admin</a>
+        </nav>
+        <div class="ms-bottom">
+            <a href="login.html" id="nav-login"><i>🔑</i>Login</a>
+            <a href="#" id="nav-logout" style="display:none;" onclick="handleLogout()"><i>🚪</i>Logout</a>
+            <button id="themeBtn" class="ms-theme" title="Dark / Light mode">🌙</button>
+        </div>
+    </aside>
+
+    <section class="home">
+        <!-- ══ DASHBOARD WELCOME BANNER (shows only when logged in) ══ -->
+        <div id="welcomeBanner" style="display:none; background:linear-gradient(45deg,#00a2ff,#1e90ff); 
+            padding:14px 30px; text-align:center; font-size:16px; color:white; font-weight:500;">
+            👋 Welcome back, <span id="welcomeName"></span>! 
+            &nbsp;|&nbsp; 
+            <a href="topics.html" style="color:white; text-decoration:underline;">Start Learning</a>
+            &nbsp;|&nbsp;
+            <a href="practice.html" style="color:white; text-decoration:underline;">Practice</a>
+            &nbsp;|&nbsp;
+            <a href="calculators.html" style="color:white; text-decoration:underline;">Calculators</a>
+        </div>
+        <video autoplay muted loop playsinline class="bg-video">
+            <source src="images/background.webm" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <div class="overlay"></div>
+
+        <div class="home-content">
+            <h2>Making Mathematics Simple & Interactive</h2>
+            <p>Learn maths with examples, practice questions, and calculators.</p>
+            <p>
+                This website helps students understand mathematical concepts
+                easily using explanations, examples, and interactive tools.
+            </p> <br> <br>
+        </div>
+
+    </section>
+<section class="wr-sec"><h2 class="wr-title">Who <em>are we?</em></h2><p class="wr-sub">Hover over (or tap) a card to explore IMSA ✨</p><div class="wr-grid">
+<div class="wr-card"><div class="wr-in"><div class="wr-f"><div class="ic">∑</div><h3>Industrial Mathematics Students' Association</h3></div><div class="wr-b">A student community where maths meets real-world applications.</div></div></div>
+<div class="wr-card"><div class="wr-in"><div class="wr-f"><div class="ic">🤝</div><h3>Community</h3></div><div class="wr-b">Students and maths enthusiasts learning, growing and connecting beyond the classroom.</div></div></div>
+<div class="wr-card"><div class="wr-in"><div class="wr-f"><div class="ic">🏭</div><h3>Industry</h3></div><div class="wr-b">We explore how mathematics powers industry: modelling, optimisation, data and more.</div></div></div>
+<div class="wr-card"><div class="wr-in"><div class="wr-f"><div class="ic">💡</div><h3>Share Knowledge</h3></div><div class="wr-b">Publish articles, then discuss them with likes, dislikes and comments.</div></div></div>
+</div></section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="feature-card">
+            <img src="https://cdn-icons-png.flaticon.com/512/2451/2451006.png" alt="Topics Icon">
+            <h3>Core Topics</h3>
+            <p>Explore a wide range of mathematical topics from basic arithmetic to advanced calculus, explained simply.
+            </p>
+            <a href="topics.html" class="btn-small">Explore Topics</a>
+        </div>
+        <div class="feature-card">
+            <img src="https://cdn-icons-png.flaticon.com/512/3579/3579040.png" alt="Quiz Icon">
+            <h3>Interactive Practice</h3>
+            <p>Test your knowledge with our interactive quizzes and practice problems designed to reinforce your
+                learning.</p>
+            <a href="practice.html" class="btn-small">Start Practicing</a>
+        </div>
+        <div class="feature-card">
+            <img src="https://cdn-icons-png.flaticon.com/512/265/265682.png" alt="Calculator Icon">
+            <h3>Smart Calculators</h3>
+            <p>Use our powerful online calculators to solve complex equations and visualize mathematical concepts
+                instantly.</p>
+            <a href="calculators.html" class="btn-small">Use Calculators</a>
+        </div>
+    </section>
+
+    <section class="quote-section">
+        <blockquote>
+            "Mathematics is not about numbers, equations, computations, or algorithms: it is about understanding."
+            <cite>- William Paul Thurston</cite>
+        </blockquote>
+    </section>
+
+    <section class="cta-section">
+        <h2>Ready to Master Mathematics?</h2>
+        <p>Join thousands of learners and start improving your math skills today.</p>
+        <a href="Learn_more.html" class="btn-large">Get Started Now</a>
+    </section>
+
+
+    <footer>
+        <p>&copy; 2026 All Rights Reserved | IMSA</p>
+    </footer>
+
+    <script>
+        // ── Login / Logout state ──
+        function updateAuthNav() {
+            const loggedIn = localStorage.getItem('ms_logged_in') === 'true';
+            const email    = localStorage.getItem('ms_user_email') || '';
+
+            document.getElementById('nav-login').style.display    = loggedIn ? 'none'         : 'inline-block';
+            document.getElementById('nav-logout').style.display   = loggedIn ? 'inline-block' : 'none';
+
+            // Show welcome banner
+            const banner = document.getElementById('welcomeBanner');
+            if (banner) {
+                banner.style.display = loggedIn ? 'block' : 'none';
+                document.getElementById('welcomeName').textContent = email;
+            }
+        }
+
+        function handleLogout() {
+            localStorage.removeItem('ms_logged_in');
+            localStorage.removeItem('ms_user_email');
+            updateAuthNav();
+        }
+
+        updateAuthNav();
+
+        // ── Hamburger menu ──
+        function toggleMenu() {
+            const nav = document.querySelector('.nav-anim');
+            const hamburger = document.querySelector('.hamburger');
+            nav.classList.toggle('active');
+            hamburger.classList.toggle('open');
+        }
+
+        // Close nav when a link is clicked on mobile
+        document.querySelectorAll('.nav-anim a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    document.querySelector('.nav-anim').classList.remove('active');
+                    document.querySelector('.hamburger').classList.remove('open');
+                }
+            });
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script type="module" src="js/site.js"></script>
+</body>
+
+</html>

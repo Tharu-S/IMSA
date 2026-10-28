@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - IMSA</title>
+    <link rel="icon" href="images/imsa-logo.jpeg">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Exo+2:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/about.css">
+<script>if(localStorage.getItem("ms_theme")==="light")document.documentElement.dataset.theme="light"</script>
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+
+<!-- Particle network canvas -->
+<canvas id="bgCanvas"></canvas>
+
+<!-- ══ HEADER ══ -->
+<button class="ms-burger" onclick="msToggleNav()" aria-label="Menu">☰</button>
+    <aside class="ms-side" id="msSide">
+        <div class="ms-top"><a href="index.html" class="ms-brand"><img src="images/imsa-logo.jpeg" alt="IMSA"><span>IMSA</span></a><button class="ms-x" onclick="msToggleNav()" aria-label="Close menu">«</button></div>
+        <nav class="ms-links nav-anim">
+            <a href="index.html"><i>🏠</i>Home</a>
+            <a href="topics.html"><i>📚</i>Topics</a>
+            <a href="practice.html"><i>✏️</i>Practice</a>
+            <a href="calculators.html"><i>🧮</i>Calculators</a>
+            <a href="articles.html"><i>📝</i>Articles</a>
+            <a href="about.html"><i>ℹ️</i>About Us</a>
+            <a href="admin.html" id="nav-admin" style="display:none;"><i>🛡️</i>Admin</a>
+        </nav>
+        <div class="ms-bottom">
+            <a href="login.html" id="nav-login"><i>🔑</i>Login</a>
+            <a href="#" id="nav-logout" style="display:none;" onclick="handleLogout()"><i>🚪</i>Logout</a>
+            <button id="themeBtn" class="ms-theme" title="Dark / Light mode">🌙</button>
+        </div>
+    </aside>
+
+<!-- ══ ABOUT IMSA ══ -->
+<section class="page-section" style="padding-top:90px;">
+    <span class="sec-label reveal" style="text-align:center; display:block;">The Association</span>
+    <h2 class="sec-heading reveal" style="text-align:center; max-width:100%; margin-bottom:30px;">Industrial Mathematics <em>Students' Association</em></h2>
+    <div class="ib-card ib-intro reveal">
+        <img src="images/imsa-logo.jpeg" alt="IMSA logo">
+        <div>
+            <p>The Industrial Mathematics Students' Association (IMSA) is a society dedicated to enhancing the knowledge and practical applications of mathematics among its members. Collaborating with industry, IMSA promotes industrial mathematics and its relevance in real-world problem-solving.</p>
+            <p>The association gives mathematics undergraduates of the Faculty a platform to connect, exchange ideas and learn from one another, bridging the gap between academia and industry and preparing members for successful careers in industrial mathematics and related fields. IMSA also shares mathematics knowledge with the general public through activities that support mathematics learners, including school children.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ══ OFFICE BEARERS ══ -->
+<section class="page-section" style="padding-top:0;">
+    <span class="sec-label reveal" style="text-align:center; display:block;">Our Team</span>
+    <h2 class="sec-heading reveal" style="text-align:center; max-width:100%; margin-bottom:40px;">Executive <em>Committee 2026</em></h2>
+    <div class="ex-row"><div class="ib-card ex-card reveal"><div class="ib-av"><img src="images/team/ekanayake.jpg" alt="" onerror="this.onerror=null;this.src='images/team/demo/ekanayake.svg'"></div><h4>Dr. E.M.U.S.B. Ekanayake</h4><p>Senior Treasurer</p></div><div class="ib-card ex-card reveal"><div class="ib-av"><img src="images/team/ayodhya.jpg" alt="" onerror="this.onerror=null;this.src='images/team/demo/ayodhya.svg'"></div><h4>Ayodhya Rathnayake</h4><p>President</p></div><div class="ib-card ex-card reveal"><div class="ib-av"><img src="images/team/vishmi.jpg" alt="" onerror="this.onerror=null;this.src='images/team/demo/vishmi.svg'"></div><h4>Vishmi Chasinka</h4><p>Secretary</p></div><div class="ib-card ex-card reveal"><div class="ib-av"><img src="images/team/danushka.jpg" alt="" onerror="this.onerror=null;this.src='images/team/demo/danushka.svg'"></div><h4>Danushka Maduranga</h4><p>Junior Treasurer</p></div><div class="ib-card ex-card reveal"><div class="ib-av"><img src="images/team/dilshan-udesh.jpg" alt="" onerror="this.onerror=null;this.src='images/team/demo/dilshan-udesh.svg'"></div><h4>Dilshan Udesh</h4><p>Editor</p></div></div>
+    <div class="ex-row"><div class="ib-card ex-card reveal"><div class="ib-av"><img src="images/team/shahan.jpg" alt="" onerror="this.onerror=null;this.src='images/team/demo/shahan.svg'"></div><h4>Shahan Vimukthi</h4><p>Vice President</p></div><div class="ib-card ex-card reveal"><div class="ib-av"><img src="images/team/tharushi-s.jpg" alt="" onerror="this.onerror=null;this.src='images/team/demo/tharushi-s.svg'"></div><h4>Tharushi Subhani</h4><p>Vice Secretary</p></div></div>
+    <h3 class="ib-sub reveal">Committee Members</h3>
+    <div class="ib-grid ib-three"><div class="ib-card reveal"><h4>3rd Year</h4><ul class="cm-list"><li class="cm"><span class="cm-av"><img src="images/team/ravindu-m.jpg" alt="" onerror="this.onerror=null;this.src='images/team/demo/ravindu-m.svg'"></span><span>Ravindu Mahavithana</span></li><li class="cm"><span class="cm-av"><img src="images/team/gihansa.jpg" alt="" onerror="this.onerror=null;this.src='images/team/demo/gihansa.svg'"></span><span>Gihansa Perera</span></li><li class="cm"><span class="cm-av"><img src="images/team/nipuni.jpg" alt="" onerror="this.onerror=null;this.src='images/team/demo/nipuni.svg'"></span><span>Nipuni Thennakoon</span></li><li class="cm"><span class="cm-av"><img src="images/team/uthpala.jpg" alt="" onerror="this.onerror=null;this.src='images/team/demo/uthpala.svg'"></span><span>Uthpala Erandika</span></li><li class="cm"><span class="cm-av"><img src="images/team/pramuditha.jpg" alt="" onerror="this.onerror=null;this.src='images/team/demo/pramuditha.svg'"></span><span>Pramuditha Yatawara</span></li></ul></div><div class="ib-card reveal"><h4>2nd Year</h4><ul class="cm-list"><li class="cm"><span class="cm-av"><img src="images/team/ravindu-d.jpg" alt="" onerror="this.onerror=null;this.src='images/team/demo/ravindu-d.svg'"></span><span>Ravindu Dilshan</span></li><li class="cm"><span class="cm-av"><img src="images/team/isuru.jpg" alt="" onerror="this.onerror=null;this.src='images/team/demo/isuru.svg'"></span><span>Isuru Kaushika</span></li><li class="cm"><span class="cm-av"><img src="images/team/koparnika.jpg" alt="" onerror="this.onerror=null;this.src='images/team/demo/koparnika.svg'"></span><span>Koparnika Srikaran</span></li><li class="cm"><span class="cm-av"><img src="images/team/praveen.jpg" alt="" onerror="this.onerror=null;this.src='images/team/demo/praveen.svg'"></span><span>Praveen Theekshana</span></li><li class="cm"><span class="cm-av"><img src="images/team/kaushalya.jpg" alt="" onerror="this.onerror=null;this.src='images/team/demo/kaushalya.svg'"></span><span>Kaushalya Karunarathna</span></li></ul></div><div class="ib-card reveal"><h4>1st Year</h4><ul class="cm-list"><li class="cm"><span class="cm-av"><img src="images/team/ahinsa.jpg" alt="" onerror="this.onerror=null;this.src='images/team/demo/ahinsa.svg'"></span><span>Ahinsa Madushika</span></li><li class="cm"><span class="cm-av"><img src="images/team/maleesha.jpg" alt="" onerror="this.onerror=null;this.src='images/team/demo/maleesha.svg'"></span><span>Maleesha Kaluthota</span></li><li class="cm"><span class="cm-av"><img src="images/team/malsha.jpg" alt="" onerror="this.onerror=null;this.src='images/team/demo/malsha.svg'"></span><span>Malsha Dewduni</span></li><li class="cm"><span class="cm-av"><img src="images/team/chathura.jpg" alt="" onerror="this.onerror=null;this.src='images/team/demo/chathura.svg'"></span><span>Chathura Jayamal</span></li><li class="cm"><span class="cm-av"><img src="images/team/lahiru.jpg" alt="" onerror="this.onerror=null;this.src='images/team/demo/lahiru.svg'"></span><span>Lahiru Gayantha</span></li></ul></div></div>
+</section>
+
+<!-- ══ CONTACT FORM ══ -->
+<section class="page-section" style="padding-top:0;">
+    <span class="sec-label reveal" style="text-align:center; display:block;">Get In Touch</span>
+    <h2 class="sec-heading reveal" style="text-align:center; max-width:100%; transition-delay:0.1s; margin-bottom:40px;">
+        Send us a <em>Message</em>
+    </h2>
+ <div class="holo-card-wrap reveal scale-in" style="transition-delay:0.15s">
+  <div class="holo-card" id="holoCard">
+    <div class="holo-card-wrap reveal scale-in" style="max-width:600px; margin:0 auto;">
+        <div id="contactSuccess" style="display:none; color:#00cc66; text-align:center; margin-bottom:16px; font-size:16px;">
+            ✅ Message sent successfully!
+        </div>
+        <div id="contactError" style="display:none; color:#ff3333; text-align:center; margin-bottom:16px; font-size:16px;"></div>
+
+        <form id="contactForm" novalidate style="display:flex; flex-direction:column; gap:18px;">
+            <div class="form-group">
+                <label style="color:#aaa; font-size:14px; margin-bottom:6px; display:block;">Your Name</label>
+                <div class="input-wrap">
+                    <input type="text" id="contactName" placeholder="John Doe" required
+                        style="background:transparent; border:none; color:white; width:100%; outline:none; font-size:15px; padding:12px 0;">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label style="color:#aaa; font-size:14px; margin-bottom:6px; display:block;">Email Address</label>
+                <div class="input-wrap">
+                    <input type="email" id="contactEmail" placeholder="you@example.com" required
+                        style="background:transparent; border:none; color:white; width:100%; outline:none; font-size:15px; padding:12px 0;">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label style="color:#aaa; font-size:14px; margin-bottom:6px; display:block;">Message</label>
+                <div class="input-wrap" style="align-items:flex-start;">
+                    <textarea id="contactMessage" rows="5" placeholder="Write your message here..." required
+                        style="background:transparent; border:none; color:white; width:100%; outline:none; 
+                        resize:vertical; font-size:15px; padding:12px 0;"></textarea>
+                </div>
+            </div>
+
+            <button type="submit" class="btn-auth" style="margin-top:8px;">SEND MESSAGE</button>
+        </form>
+    </div>
+  </div>
+ </div>
+</section>
+
+
+<!-- ══ ACTIVITIES ══ -->
+<section class="page-section" style="padding-top:0;">
+    <span class="sec-label reveal" style="text-align:center; display:block;">What We Do</span>
+    <h2 class="sec-heading reveal" style="text-align:center; max-width:100%; margin-bottom:40px;">Our <em>Activities</em></h2>
+    <div class="ib-grid ib-three">
+        <div class="ib-card reveal">
+            <span class="bento-icon">&#127979;</span>
+            <h4>'Sipsayura' O/L Mathematics Seminar Series 2023</h4>
+            <p>An educational program organized by IMSA to support O/L students in rural schools, preparing them for the O/L Mathematics examination through discussions around model papers and motivation to excel.</p>
+            <ul><li>24/04/2023 – MR/ Pallegama National School</li><li>28/04/2023 – MR/ Deniyaya Rajapaksha Maha Vidyalaya</li></ul>
+        </div>
+        <div class="ib-card reveal">
+            <span class="bento-icon">&#129513;</span>
+            <h4>Mathematics Stall at Padikaramaduwa Maha Vidyalaya</h4>
+            <p>IMSA ran a hands-on mathematics stall for the school's exhibition celebrating its 66th anniversary, where students explored puzzles, patterns and models.</p>
+        </div>
+        <div class="ib-card reveal">
+            <span class="bento-icon">&#9823;</span>
+            <h4>IMSA Chess Fiesta 2023</h4>
+            <p>On 11th April 2023 IMSA hosted its second Chess Fiesta on Lichess: a 7-round Swiss tournament with a rapid 10 minutes + 0 second increment time control.</p>
+            <ul class="ib-win"><li>&#129351; Dileesha Lakshan Liyanagunawardhana – Faculty of Technology</li><li>&#129352; Manuji Nisansala Attanayaka – Faculty of Applied Sciences</li><li>&#129353; Ramindu Shadihara Kahingala – Faculty of Applied Sciences</li></ul>
+        </div>
+    </div>
+</section>
+
+<!-- Scroll to top button -->
+<button id="scrollBtn" onclick="window.scrollTo({top:0, behavior:'smooth'})">⮝</button>
+
+<section class="lab"><div class="lab-box"><h2>Wave <em>Lab</em></h2><p class="s">Move your mouse over the graph: left ↔ right changes the frequency, up ↕ down changes the amplitude.</p>
+<canvas id="waveCanvas"></canvas><div class="lab-ctl"><span id="waveEq"></span><label>Speed <input type="range" id="waveSpeed" min="0" max="10" value="3"></label><label><input type="checkbox" id="waveHarm"> add 2nd harmonic</label></div>
+<div class="fm-row"><div class="fm"><div class="f">e<sup>iπ</sup> + 1 = 0</div><div class="ex">Euler's identity links five fundamental constants.</div></div>
+<div class="fm"><div class="f">a² + b² = c²</div><div class="ex">Pythagoras: the squares on the legs add up to the square on the hypotenuse.</div></div>
+<div class="fm"><div class="f">∫ f′(x) dx = f(x) + C</div><div class="ex">Integration undoes differentiation (up to a constant).</div></div>
+<div class="fm"><div class="f">σ² = E[(X − μ)²]</div><div class="ex">Variance measures how spread out the data is around the mean.</div></div></div></div></section>
+<footer>
+    <p>&copy; 2026 All Rights Reserved | IMSA</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script src="js/about.js"></script>
+
+<script type="module" src="js/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMSA</title>
+    <link rel="icon" href="images/imsa-logo.jpeg">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/calculators.css">
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Exo+2:wght@300;400;600;700&display=swap" rel="stylesheet">
+<script>if(localStorage.getItem("ms_theme")==="light")document.documentElement.dataset.theme="light"</script>
+<link rel="stylesheet" href="css/site.css">
+</head>
+
+<body>
+
+    <!-- Auth Guard: redirect to login if not logged in -->
+    <script>
+        if (localStorage.getItem('ms_logged_in') !== 'true') {
+            window.location.replace('login.html');
+        }
+    </script>
+
+    <button class="ms-burger" onclick="msToggleNav()" aria-label="Menu">☰</button>
+    <aside class="ms-side" id="msSide">
+        <div class="ms-top"><a href="index.html" class="ms-brand"><img src="images/imsa-logo.jpeg" alt="IMSA"><span>IMSA</span></a><button class="ms-x" onclick="msToggleNav()" aria-label="Close menu">«</button></div>
+        <nav class="ms-links nav-anim">
+            <a href="index.html"><i>🏠</i>Home</a>
+            <a href="topics.html"><i>📚</i>Topics</a>
+            <a href="practice.html"><i>✏️</i>Practice</a>
+            <a href="calculators.html"><i>🧮</i>Calculators</a>
+            <a href="articles.html"><i>📝</i>Articles</a>
+            <a href="about.html"><i>ℹ️</i>About Us</a>
+            <a href="admin.html" id="nav-admin" style="display:none;"><i>🛡️</i>Admin</a>
+        </nav>
+        <div class="ms-bottom">
+            <a href="login.html" id="nav-login"><i>🔑</i>Login</a>
+            <a href="#" id="nav-logout" style="display:none;" onclick="handleLogout()"><i>🚪</i>Logout</a>
+            <button id="themeBtn" class="ms-theme" title="Dark / Light mode">🌙</button>
+        </div>
+    </aside>
+
+    <div class="calc-page">
+        <div class="page-hero">
+            <h2>Smart Calculators</h2>
+            <p>Powerful tools to solve, convert, and visualize mathematics instantly.</p>
+        </div>
+
+        <!-- TABS -->
+        <div class="calc-tabs">
+            <button class="ctab active" onclick="switchCalc('standard', this)"><span class="icon">🖩</span>
+                Standard</button>
+            <button class="ctab" onclick="switchCalc('quadratic', this)"><span class="icon">📈</span> Quadratic</button>
+            <button class="ctab" onclick="switchCalc('geometry', this)"><span class="icon">📐</span> Geometry</button>
+            <button class="ctab" onclick="switchCalc('stats', this)"><span class="icon">📊</span> Statistics</button>
+            <button class="ctab" onclick="switchCalc('converter', this)"><span class="icon">🔄</span> Unit
+                Converter</button>
+            <button class="ctab" onclick="switchCalc('matrix', this)"><span class="icon">🔢</span> Matrix</button>
+        </div>
+
+        <!-- ════════════════════════════════
+         1. STANDARD CALCULATOR
+    ════════════════════════════════ -->
+        <div class="calc-panel active" id="panel-standard">
+            <div class="calc-card">
+                <h3>Standard Calculator</h3>
+                <p class="desc">Basic arithmetic operations.</p>
+                <div class="display-wrap">
+                    <div class="display-expr" id="std-expr"></div>
+                    <div class="display-val" id="std-display">0</div>
+                </div>
+                <div class="btn-grid">
+                    <button class="btn-clear" onclick="stdClear()">AC</button>
+                    <button class="btn-fn" onclick="stdToggleSign()">+/−</button>
+                    <button class="btn-fn" onclick="stdPercent()">%</button>
+                    <button class="btn-op" onclick="stdOp('/')">÷</button>
+
+                    <button class="btn-num" onclick="stdNum('7')">7</button>
+                    <button class="btn-num" onclick="stdNum('8')">8</button>
+                    <button class="btn-num" onclick="stdNum('9')">9</button>
+                    <button class="btn-op" onclick="stdOp('*')">×</button>
+
+                    <button class="btn-num" onclick="stdNum('4')">4</button>
+                    <button class="btn-num" onclick="stdNum('5')">5</button>
+                    <button class="btn-num" onclick="stdNum('6')">6</button>
+                    <button class="btn-op" onclick="stdOp('-')">−</button>
+
+                    <button class="btn-num" onclick="stdNum('1')">1</button>
+                    <button class="btn-num" onclick="stdNum('2')">2</button>
+                    <button class="btn-num" onclick="stdNum('3')">3</button>
+                    <button class="btn-op" onclick="stdOp('+')">+</button>
+
+                    <button class="btn-num" style="grid-column:span 2" onclick="stdNum('0')">0</button>
+                    <button class="btn-num" onclick="stdDot()">.</button>
+                    <button class="btn-eq" style="grid-column:span 1" onclick="stdEquals()">=</button>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ════════════════════════════════
+         3. QUADRATIC SOLVER
+    ════════════════════════════════ -->
+        <div class="calc-panel" id="panel-quadratic">
+            <div class="calc-card">
+                <h3>Quadratic Equation Solver</h3>
+                <p class="desc">Solve ax² + bx + c = 0 using the quadratic formula.</p>
+                <div class="eq-display" id="quad-eq">ax² + bx + c = 0</div>
+                <div class="field-group triple">
+                    <div>
+                        <label class="field-label">a (x² coefficient)</label>
+                        <input class="calc-input" id="quad-a" type="number" placeholder="e.g. 1"
+                            oninput="updateQuadDisplay()">
+                    </div>
+                    <div>
+                        <label class="field-label">b (x coefficient)</label>
+                        <input class="calc-input" id="quad-b" type="number" placeholder="e.g. −5"
+                            oninput="updateQuadDisplay()">
+                    </div>
+                    <div>
+                        <label class="field-label">c (constant)</label>
+                        <input class="calc-input" id="quad-c" type="number" placeholder="e.g. 6"
+                            oninput="updateQuadDisplay()">
+                    </div>
+                </div>
+                <button class="btn-calculate" onclick="solveQuadratic()">Solve Equation</button>
+                <div class="result-box" id="quad-result"></div>
+            </div>
+        </div>
+
+        <!-- ════════════════════════════════
+         4. GEOMETRY CALCULATOR
+    ════════════════════════════════ -->
+        <div class="calc-panel" id="panel-geometry">
+            <div class="calc-card">
+                <h3>Geometry Calculator</h3>
+                <p class="desc">Areas, perimeters, volumes, and surface areas of common shapes.</p>
+
+                <label class="field-label">Select Shape</label>
+                <select class="calc-input" id="geo-shape" onchange="renderGeoForm()" style="margin-bottom:22px">
+                    <option value="circle">Circle</option>
+                    <option value="rectangle">Rectangle</option>
+                    <option value="triangle">Triangle</option>
+                    <option value="sphere">Sphere</option>
+                    <option value="cylinder">Cylinder</option>
+                    <option value="cone">Cone</option>
+                    <option value="cube">Cube</option>
+                </select>
+
+                <div id="geo-form"></div>
+                <button class="btn-calculate" onclick="calcGeometry()">Calculate</button>
+                <div class="result-box" id="geo-result"></div>
+            </div>
+        </div>
+
+        <!-- ════════════════════════════════
+         5. STATISTICS CALCULATOR
+    ════════════════════════════════ -->
+        <div class="calc-panel" id="panel-stats">
+            <div class="calc-card">
+                <h3>Statistics Calculator</h3>
+                <p class="desc">Enter comma-separated numbers to compute key statistics.</p>
+                <label class="field-label">Data Set</label>
+                <input class="calc-input" id="stat-input" type="text" placeholder="e.g. 4, 8, 15, 16, 23, 42">
+                <button class="btn-calculate" onclick="calcStats()">Analyse Data</button>
+                <div class="stat-results" id="stat-results">
+                    <div class="stat-chip">
+                        <div class="sc-label">Count (n)</div>
+                        <div class="sc-val" id="s-count">—</div>
+                    </div>
+                    <div class="stat-chip">
+                        <div class="sc-label">Sum</div>
+                        <div class="sc-val" id="s-sum">—</div>
+                    </div>
+                    <div class="stat-chip">
+                        <div class="sc-label">Mean</div>
+                        <div class="sc-val" id="s-mean">—</div>
+                    </div>
+                    <div class="stat-chip">
+                        <div class="sc-label">Median</div>
+                        <div class="sc-val" id="s-median">—</div>
+                    </div>
+                    <div class="stat-chip">
+                        <div class="sc-label">Mode</div>
+                        <div class="sc-val" id="s-mode">—</div>
+                    </div>
+                    <div class="stat-chip">
+                        <div class="sc-label">Range</div>
+                        <div class="sc-val" id="s-range">—</div>
+                    </div>
+                    <div class="stat-chip">
+                        <div class="sc-label">Std Deviation (σ)</div>
+                        <div class="sc-val" id="s-std">—</div>
+                    </div>
+                    <div class="stat-chip">
+                        <div class="sc-label">Variance (σ²)</div>
+                        <div class="sc-val" id="s-var">—</div>
+                    </div>
+                    <div class="stat-chip">
+                        <div class="sc-label">Min</div>
+                        <div class="sc-val" id="s-min">—</div>
+                    </div>
+                    <div class="stat-chip">
+                        <div class="sc-label">Max</div>
+                        <div class="sc-val" id="s-max">—</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ════════════════════════════════
+         6. UNIT CONVERTER
+    ════════════════════════════════ -->
+        <div class="calc-panel" id="panel-converter">
+            <div class="calc-card">
+                <h3>Unit Converter</h3>
+                <p class="desc">Convert between common units of measurement.</p>
+
+                <label class="field-label">Category</label>
+                <select class="calc-input" id="conv-cat" onchange="renderConverterUnits()" style="margin-bottom:18px">
+                    <option value="length">Length</option>
+                    <option value="mass">Mass / Weight</option>
+                    <option value="temp">Temperature</option>
+                    <option value="area">Area</option>
+                    <option value="volume">Volume</option>
+                    <option value="speed">Speed</option>
+                    <option value="time">Time</option>
+                    <option value="data">Digital Data</option>
+                </select>
+
+                <div class="converter-row">
+                    <div>
+                        <label class="field-label" id="conv-from-label">From</label>
+                        <select class="calc-input" id="conv-from" onchange="doConvert()"></select>
+                    </div>
+                    <button class="arrow-btn" onclick="swapUnits()">⇄</button>
+                    <div>
+                        <label class="field-label" id="conv-to-label">To</label>
+                        <select class="calc-input" id="conv-to" onchange="doConvert()"></select>
+                    </div>
+                </div>
+
+                <label class="field-label">Value</label>
+                <input class="calc-input" id="conv-val" type="number" placeholder="Enter value..."
+                    oninput="doConvert()">
+
+                <div class="result-box" id="conv-result"></div>
+            </div>
+        </div>
+
+        <!-- ════════════════════════════════
+         7. MATRIX CALCULATOR
+    ════════════════════════════════ -->
+        <div class="calc-panel" id="panel-matrix">
+            <div class="calc-card">
+                <h3>Matrix Calculator</h3>
+                <p class="desc">Add, subtract, or multiply two 2×2 matrices.</p>
+
+                <label class="field-label">Operation</label>
+                <select class="calc-input" id="mat-op" style="margin-bottom:22px">
+                    <option value="add">Addition (A + B)</option>
+                    <option value="sub">Subtraction (A − B)</option>
+                    <option value="mul">Multiplication (A × B)</option>
+                    <option value="detA">Determinant of A</option>
+                    <option value="detB">Determinant of B</option>
+                    <option value="transpA">Transpose of A</option>
+                    <option value="transpB">Transpose of B</option>
+                </select>
+
+                <div class="matrix-wrap">
+                    <div class="matrix-block">
+                        <div class="m-title">Matrix A</div>
+                        <div class="matrix-grid" style="grid-template-columns:repeat(2,58px)">
+                            <input id="a00" value="1"><input id="a01" value="2">
+                            <input id="a10" value="3"><input id="a11" value="4">
+                        </div>
+                    </div>
+                    <div class="matrix-op" id="mat-op-sym">+</div>
+                    <div class="matrix-block">
+                        <div class="m-title">Matrix B</div>
+                        <div class="matrix-grid" style="grid-template-columns:repeat(2,58px)">
+                            <input id="b00" value="5"><input id="b01" value="6">
+                            <input id="b10" value="7"><input id="b11" value="8">
+                        </div>
+                    </div>
+                    <div class="matrix-op">=</div>
+                    <div class="matrix-block">
+                        <div class="m-title" id="mat-res-title">Result</div>
+                        <div class="matrix-grid" id="mat-result-grid" style="grid-template-columns:repeat(2,58px)">
+                            <span>—</span><span>—</span>
+                            <span>—</span><span>—</span>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="btn-calculate" onclick="calcMatrix()">Calculate</button>
+                <div class="result-box" id="mat-extra"></div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 All Rights Reserved | IMSA</p>
+    </footer>
+
+    <script>
+                /* ════════════════════════════════════════════
+           HELPERS
+        ════════════════════════════════════════════ */
+        function fmt(n, d = 6) {
+            if (isNaN(n) || !isFinite(n)) return 'Error';
+            let r = parseFloat(n.toFixed(d));
+            return r;
+        }
+        function showResult(id, label, val, steps = '') {
+            const box = document.getElementById(id);
+            box.innerHTML = `<div class="r-label">${label}</div>
+                     <div class="r-val">${val}</div>
+                     ${steps ? `<div class="r-steps">${steps}</div>` : ''}`;
+            box.classList.add('visible');
+        }
+
+        /* ════════════════════════════════════════════
+           TAB SWITCHING
+        ════════════════════════════════════════════ */
+        function switchCalc(name, btn) {
+            document.querySelectorAll('.calc-panel').forEach(p => p.classList.remove('active'));
+            document.querySelectorAll('.ctab').forEach(b => b.classList.remove('active'));
+            document.getElementById('panel-' + name).classList.add('active');
+            btn.classList.add('active');
+        }
+
+        /* ════════════════════════════════════════════
+           STANDARD CALCULATOR
+        ════════════════════════════════════════════ */
+        let stdVal = '0', stdPrev = null, stdOper = null, stdFresh = false;
+        const stdD = () => document.getElementById('std-display');
+        const stdE = () => document.getElementById('std-expr');
+
+        function stdNum(n) {
+            if (stdFresh) { stdVal = n; stdFresh = false; }
+            else stdVal = stdVal === '0' ? n : stdVal + n;
+            stdD().textContent = stdVal;
+        }
+        function stdDot() {
+            if (stdFresh) { stdVal = '0.'; stdFresh = false; }
+            else if (!stdVal.includes('.')) stdVal += '.';
+            stdD().textContent = stdVal;
+        }
+        function stdOp(op) {
+            if (stdPrev !== null && !stdFresh) stdEquals(true);
+            stdPrev = parseFloat(stdVal);
+            stdOper = op;
+            stdFresh = true;
+            const sym = { '+': '+', '-': '−', '*': '×', '/': '÷' }[op];
+            stdE().textContent = `${stdPrev} ${sym}`;
+        }
+        function stdEquals(chain = false) {
+            if (stdPrev === null || stdOper === null) return;
+            const cur = parseFloat(stdVal);
+            let res;
+            if (stdOper === '+') res = stdPrev + cur;
+            else if (stdOper === '-') res = stdPrev - cur;
+            else if (stdOper === '*') res = stdPrev * cur;
+            else if (stdOper === '/') res = cur === 0 ? NaN : stdPrev / cur;
+            if (!chain) {
+                const sym = { '+': '+', '-': '−', '*': '×', '/': '÷' }[stdOper];
+                stdE().textContent = `${stdPrev} ${sym} ${cur} =`;
+                stdOper = null; stdPrev = null;
+            }
+            stdVal = isNaN(res) || !isFinite(res) ? 'Error' : String(fmt(res));
+            stdD().textContent = stdVal;
+            stdFresh = true;
+        }
+        function stdClear() { stdVal = '0'; stdPrev = null; stdOper = null; stdFresh = false; stdD().textContent = '0'; stdE().textContent = ''; }
+        function stdToggleSign() { stdVal = String(parseFloat(stdVal) * -1); stdD().textContent = stdVal; }
+        function stdPercent() { stdVal = String(parseFloat(stdVal) / 100); stdD().textContent = stdVal; }
+
+        /* ════════════════════════════════════════════
+           QUADRATIC SOLVER
+        ════════════════════════════════════════════ */
+        function updateQuadDisplay() {
+            const a = document.getElementById('quad-a').value || 'a';
+            const b = document.getElementById('quad-b').value || 'b';
+            const c = document.getElementById('quad-c').value || 'c';
+            document.getElementById('quad-eq').textContent = `${a}x² + (${b})x + (${c}) = 0`;
+        }
+        function solveQuadratic() {
+            const a = parseFloat(document.getElementById('quad-a').value);
+            const b = parseFloat(document.getElementById('quad-b').value);
+            const c = parseFloat(document.getElementById('quad-c').value);
+            if (isNaN(a) || isNaN(b) || isNaN(c)) { showResult('quad-result', 'Error', 'Please fill all fields.'); return; }
+            if (a === 0) { showResult('quad-result', 'Error', 'Coefficient a cannot be 0 (not quadratic).'); return; }
+            const disc = b * b - 4 * a * c;
+            const steps = `<p>
+        <span>Step 1:</span> Discriminant Δ = b² − 4ac = ${b}² − 4(${a})(${c}) = ${fmt(disc)}<br>
+        <span>Step 2:</span> x = (−b ± √Δ) / (2a)<br>
+        <span>Step 3:</span> x = (−(${b}) ± √${fmt(disc)}) / (2×${a})
+    </p>`;
+            if (disc > 0) {
+                const x1 = fmt((-b + Math.sqrt(disc)) / (2 * a));
+                const x2 = fmt((-b - Math.sqrt(disc)) / (2 * a));
+                showResult('quad-result', 'Two Real Roots', `x₁ = ${x1},  x₂ = ${x2}`, steps);
+            } else if (disc === 0) {
+                const x = fmt(-b / (2 * a));
+                showResult('quad-result', 'One Repeated Root', `x = ${x}`, steps);
+            } else {
+                const re = fmt(-b / (2 * a));
+                const im = fmt(Math.sqrt(-disc) / (2 * a));
+                showResult('quad-result', 'Two Complex Roots', `x = ${re} ± ${im}i`, steps);
+            }
+        }
+
+        /* ════════════════════════════════════════════
+           GEOMETRY CALCULATOR
+        ════════════════════════════════════════════ */
+        const geoForms = {
+            circle: `<div class="field-group single"><div><label class="field-label">Radius (r)</label><input class="calc-input" id="g1" placeholder="e.g. 5"></div></div>`,
+            rectangle: `<div class="field-group"><div><label class="field-label">Length (l)</label><input class="calc-input" id="g1" placeholder="e.g. 8"></div><div><label class="field-label">Width (w)</label><input class="calc-input" id="g2" placeholder="e.g. 4"></div></div>`,
+            triangle: `<div class="field-group triple"><div><label class="field-label">Side a</label><input class="calc-input" id="g1" placeholder="3"></div><div><label class="field-label">Side b</label><input class="calc-input" id="g2" placeholder="4"></div><div><label class="field-label">Side c</label><input class="calc-input" id="g3" placeholder="5"></div></div><div class="field-group single"><div><label class="field-label">Height (for area)</label><input class="calc-input" id="g4" placeholder="e.g. 3"></div></div>`,
+            sphere: `<div class="field-group single"><div><label class="field-label">Radius (r)</label><input class="calc-input" id="g1" placeholder="e.g. 6"></div></div>`,
+            cylinder: `<div class="field-group"><div><label class="field-label">Radius (r)</label><input class="calc-input" id="g1" placeholder="e.g. 4"></div><div><label class="field-label">Height (h)</label><input class="calc-input" id="g2" placeholder="e.g. 10"></div></div>`,
+            cone: `<div class="field-group"><div><label class="field-label">Radius (r)</label><input class="calc-input" id="g1" placeholder="e.g. 3"></div><div><label class="field-label">Height (h)</label><input class="calc-input" id="g2" placeholder="e.g. 5"></div></div>`,
+            cube: `<div class="field-group single"><div><label class="field-label">Side length (a)</label><input class="calc-input" id="g1" placeholder="e.g. 4"></div></div>`,
+        };
+        function renderGeoForm() {
+            document.getElementById('geo-form').innerHTML = geoForms[document.getElementById('geo-shape').value];
+            document.getElementById('geo-result').classList.remove('visible');
+        }
+        function calcGeometry() {
+            const shape = document.getElementById('geo-shape').value;
+            const g = i => { const el = document.getElementById('g' + i); return el ? parseFloat(el.value) : NaN; };
+            const pi = Math.PI;
+            let lines = [];
+            if (shape === 'circle') {
+                const r = g(1); if (isNaN(r)) { showResult('geo-result', 'Error', 'Enter radius'); return; }
+                lines = [`Area = πr² = π × ${r}² = <span>${fmt(pi * r * r)}</span>`,
+                `Circumference = 2πr = 2π × ${r} = <span>${fmt(2 * pi * r)}</span>`];
+            } else if (shape === 'rectangle') {
+                const l = g(1), w = g(2); if (isNaN(l) || isNaN(w)) { showResult('geo-result', 'Error', 'Enter both values'); return; }
+                lines = [`Area = l × w = ${l} × ${w} = <span>${fmt(l * w)}</span>`,
+                `Perimeter = 2(l + w) = 2(${l} + ${w}) = <span>${fmt(2 * (l + w))}</span>`,
+                `Diagonal = √(l² + w²) = <span>${fmt(Math.sqrt(l * l + w * w))}</span>`];
+            } else if (shape === 'triangle') {
+                const a = g(1), b = g(2), c = g(3), h = g(4);
+                const base = a || 0;
+                lines = [];
+                if (!isNaN(base) && !isNaN(h)) lines.push(`Area = ½ × base × height = ½ × ${base} × ${h} = <span>${fmt(0.5 * base * h)}</span>`);
+                if (!isNaN(a) && !isNaN(b) && !isNaN(c)) {
+                    lines.push(`Perimeter = a + b + c = ${a} + ${b} + ${c} = <span>${fmt(a + b + c)}</span>`);
+                    const s = (a + b + c) / 2;
+                    const area2 = Math.sqrt(s * (s - a) * (s - b) * (s - c));
+                    lines.push(`Area (Heron's) = √[s(s-a)(s-b)(s-c)] = <span>${fmt(area2)}</span>`);
+                }
+                if (!lines.length) { showResult('geo-result', 'Error', 'Fill in the fields'); return; }
+            } else if (shape === 'sphere') {
+                const r = g(1); if (isNaN(r)) { showResult('geo-result', 'Error', 'Enter radius'); return; }
+                lines = [`Volume = (4/3)πr³ = <span>${fmt((4 / 3) * pi * r * r * r)}</span>`,
+                `Surface Area = 4πr² = <span>${fmt(4 * pi * r * r)}</span>`];
+            } else if (shape === 'cylinder') {
+                const r = g(1), h = g(2); if (isNaN(r) || isNaN(h)) { showResult('geo-result', 'Error', 'Enter both values'); return; }
+                lines = [`Volume = πr²h = <span>${fmt(pi * r * r * h)}</span>`,
+                `Lateral Surface = 2πrh = <span>${fmt(2 * pi * r * h)}</span>`,
+                `Total Surface = 2πr(r + h) = <span>${fmt(2 * pi * r * (r + h))}</span>`];
+            } else if (shape === 'cone') {
+                const r = g(1), h = g(2); if (isNaN(r) || isNaN(h)) { showResult('geo-result', 'Error', 'Enter both values'); return; }
+                const sl = Math.sqrt(r * r + h * h);
+                lines = [`Slant Height = √(r²+h²) = <span>${fmt(sl)}</span>`,
+                `Volume = (1/3)πr²h = <span>${fmt((1 / 3) * pi * r * r * h)}</span>`,
+                `Lateral Surface = πrl = <span>${fmt(pi * r * sl)}</span>`,
+                `Total Surface = πr(r + l) = <span>${fmt(pi * r * (r + sl))}</span>`];
+            } else if (shape === 'cube') {
+                const a = g(1); if (isNaN(a)) { showResult('geo-result', 'Error', 'Enter side length'); return; }
+                lines = [`Volume = a³ = ${a}³ = <span>${fmt(a * a * a)}</span>`,
+                `Surface Area = 6a² = 6 × ${a}² = <span>${fmt(6 * a * a)}</span>`,
+                `Face Diagonal = a√2 = <span>${fmt(a * Math.sqrt(2))}</span>`,
+                `Space Diagonal = a√3 = <span>${fmt(a * Math.sqrt(3))}</span>`];
+            }
+            const steps = '<p>' + lines.join('<br>') + '</p>';
+            showResult('geo-result', shape.charAt(0).toUpperCase() + shape.slice(1) + ' Results', '', steps);
+        }
+
+        /* ════════════════════════════════════════════
+           STATISTICS CALCULATOR
+        ════════════════════════════════════════════ */
+        function calcStats() {
+            const raw = document.getElementById('stat-input').value;
+            const nums = raw.split(',').map(s => parseFloat(s.trim())).filter(n => !isNaN(n));
+            if (nums.length < 2) { alert('Enter at least 2 comma-separated numbers.'); return; }
+            nums.sort((a, b) => a - b);
+            const n = nums.length;
+            const sum = nums.reduce((a, b) => a + b, 0);
+            const mean = sum / n;
+            const median = n % 2 === 0 ? (nums[n / 2 - 1] + nums[n / 2]) / 2 : nums[Math.floor(n / 2)];
+            const freq = {}; nums.forEach(v => freq[v] = (freq[v] || 0) + 1);
+            const maxF = Math.max(...Object.values(freq));
+            const modes = Object.keys(freq).filter(k => freq[k] === maxF).map(Number);
+            const range = nums[n - 1] - nums[0];
+            const variance = nums.reduce((s, v) => s + (v - mean) ** 2, 0) / n;
+            const std = Math.sqrt(variance);
+
+            document.getElementById('s-count').textContent = n;
+            document.getElementById('s-sum').textContent = fmt(sum);
+            document.getElementById('s-mean').textContent = fmt(mean);
+            document.getElementById('s-median').textContent = fmt(median);
+            document.getElementById('s-mode').textContent = maxF === 1 ? 'None' : modes.join(', ');
+            document.getElementById('s-range').textContent = fmt(range);
+            document.getElementById('s-std').textContent = fmt(std);
+            document.getElementById('s-var').textContent = fmt(variance);
+            document.getElementById('s-min').textContent = nums[0];
+            document.getElementById('s-max').textContent = nums[n - 1];
+            document.getElementById('stat-results').classList.add('visible');
+        }
+
+        /* ════════════════════════════════════════════
+           UNIT CONVERTER
+        ════════════════════════════════════════════ */
+        const convUnits = {
+            length: ['Metre (m)', 'Kilometre (km)', 'Centimetre (cm)', 'Millimetre (mm)', 'Mile', 'Yard', 'Foot', 'Inch', 'Nautical Mile'],
+            mass: ['Kilogram (kg)', 'Gram (g)', 'Milligram (mg)', 'Tonne', 'Pound (lb)', 'Ounce (oz)', 'Stone'],
+            temp: ['Celsius (°C)', 'Fahrenheit (°F)', 'Kelvin (K)'],
+            area: ['Square Metre (m²)', 'Square Kilometre (km²)', 'Square Centimetre (cm²)', 'Square Mile', 'Square Yard', 'Square Foot', 'Acre', 'Hectare'],
+            volume: ['Litre (L)', 'Millilitre (mL)', 'Cubic Metre (m³)', 'Gallon (US)', 'Quart (US)', 'Pint (US)', 'Cup (US)', 'Fluid Ounce (US)'],
+            speed: ['m/s', 'km/h', 'mph', 'knot', 'ft/s'],
+            time: ['Second (s)', 'Minute (min)', 'Hour (h)', 'Day', 'Week', 'Month (30d)', 'Year (365d)'],
+            data: ['Bit', 'Byte', 'Kilobyte (KB)', 'Megabyte (MB)', 'Gigabyte (GB)', 'Terabyte (TB)']
+        };
+
+        // Conversion factors TO base unit (first in list)
+        const convFactors = {
+            length: [1, 1000, 0.01, 0.001, 1609.344, 0.9144, 0.3048, 0.0254, 1852],
+            mass: [1, 0.001, 0.000001, 1000, 0.453592, 0.0283495, 6.35029],
+            area: [1, 1e6, 0.0001, 2589988.11, 0.836127, 0.092903, 4046.86, 10000],
+            volume: [1, 0.001, 1000, 3.78541, 0.946353, 0.473176, 0.236588, 0.0295735],
+            speed: [1, 1 / 3.6, 0.44704, 0.514444, 0.3048],
+            time: [1, 60, 3600, 86400, 604800, 2592000, 31536000],
+            data: [1, 8, 8 * 1024, 8 * 1024 * 1024, 8 * 1024 * 1024 * 1024, 8 * 1024 ** 4]
+        };
+
+        function renderConverterUnits() {
+            const cat = document.getElementById('conv-cat').value;
+            const units = convUnits[cat];
+            ['conv-from', 'conv-to'].forEach((id, i) => {
+                const sel = document.getElementById(id);
+                sel.innerHTML = units.map((u, j) => `<option value="${j}">${u}</option>`).join('');
+                if (i === 1) sel.selectedIndex = 1;
+            });
+            doConvert();
+        }
+
+        function swapUnits() {
+            const f = document.getElementById('conv-from'), t = document.getElementById('conv-to');
+            [f.value, t.value] = [t.value, f.value];
+            doConvert();
+        }
+
+        function doConvert() {
+            const cat = document.getElementById('conv-cat').value;
+            const fi = parseInt(document.getElementById('conv-from').value);
+            const ti = parseInt(document.getElementById('conv-to').value);
+            const val = parseFloat(document.getElementById('conv-val').value);
+            if (isNaN(val)) { document.getElementById('conv-result').classList.remove('visible'); return; }
+
+            const fromUnit = convUnits[cat][fi];
+            const toUnit = convUnits[cat][ti];
+            let result;
+
+            if (cat === 'temp') {
+                if (fi === 0 && ti === 1) result = val * 9 / 5 + 32;          // C→F
+                else if (fi === 0 && ti === 2) result = val + 273.15;           // C→K
+                else if (fi === 1 && ti === 0) result = (val - 32) * 5 / 9;        // F→C
+                else if (fi === 1 && ti === 2) result = (val - 32) * 5 / 9 + 273.15; // F→K
+                else if (fi === 2 && ti === 0) result = val - 273.15;           // K→C
+                else if (fi === 2 && ti === 1) result = (val - 273.15) * 9 / 5 + 32; // K→F
+                else result = val;
+            } else {
+                const factors = convFactors[cat];
+                const base = val * factors[fi];
+                result = base / factors[ti];
+            }
+
+            showResult('conv-result', `${val} ${fromUnit} =`, `${fmt(result, 8)} ${toUnit}`);
+        }
+
+        /* ════════════════════════════════════════════
+           MATRIX CALCULATOR
+        ════════════════════════════════════════════ */
+        function getMatrix(prefix) {
+            return [[parseFloat(document.getElementById(prefix + '00').value) || 0,
+            parseFloat(document.getElementById(prefix + '01').value) || 0],
+            [parseFloat(document.getElementById(prefix + '10').value) || 0,
+            parseFloat(document.getElementById(prefix + '11').value) || 0]];
+        }
+        function setMatrixResult(m, isScalar = false) {
+            const grid = document.getElementById('mat-result-grid');
+            if (isScalar) {
+                grid.style.gridTemplateColumns = '1fr';
+                grid.innerHTML = `<span style="width:120px;font-size:22px">${m}</span>`;
+                return;
+            }
+            grid.style.gridTemplateColumns = 'repeat(2,58px)';
+            grid.innerHTML = m.flat().map(v => `<span>${fmt(v)}</span>`).join('');
+        }
+        function calcMatrix() {
+            const A = getMatrix('a'), B = getMatrix('b');
+            const op = document.getElementById('mat-op').value;
+            const syms = { 'add': '+', 'sub': '−', 'mul': '×' };
+            document.getElementById('mat-op-sym').textContent = syms[op] || '';
+            document.getElementById('mat-extra').classList.remove('visible');
+
+            if (op === 'add') {
+                setMatrixResult([[A[0][0] + B[0][0], A[0][1] + B[0][1]], [A[1][0] + B[1][0], A[1][1] + B[1][1]]]);
+                document.getElementById('mat-res-title').textContent = 'A + B';
+            } else if (op === 'sub') {
+                setMatrixResult([[A[0][0] - B[0][0], A[0][1] - B[0][1]], [A[1][0] - B[1][0], A[1][1] - B[1][1]]]);
+                document.getElementById('mat-res-title').textContent = 'A − B';
+            } else if (op === 'mul') {
+                const R = [[A[0][0] * B[0][0] + A[0][1] * B[1][0], A[0][0] * B[0][1] + A[0][1] * B[1][1]],
+                [A[1][0] * B[0][0] + A[1][1] * B[1][0], A[1][0] * B[0][1] + A[1][1] * B[1][1]]];
+                setMatrixResult(R);
+                document.getElementById('mat-res-title').textContent = 'A × B';
+            } else if (op === 'detA') {
+                const d = A[0][0] * A[1][1] - A[0][1] * A[1][0];
+                setMatrixResult(fmt(d), true);
+                document.getElementById('mat-res-title').textContent = 'det(A)';
+                showResult('mat-extra', 'Formula', 'det(A) = ad − bc', `<p>(${A[0][0]})(${A[1][1]}) − (${A[0][1]})(${A[1][0]}) = <span>${fmt(d)}</span></p>`);
+            } else if (op === 'detB') {
+                const d = B[0][0] * B[1][1] - B[0][1] * B[1][0];
+                setMatrixResult(fmt(d), true);
+                document.getElementById('mat-res-title').textContent = 'det(B)';
+                showResult('mat-extra', 'Formula', 'det(B) = ad − bc', `<p>(${B[0][0]})(${B[1][1]}) − (${B[0][1]})(${B[1][0]}) = <span>${fmt(d)}</span></p>`);
+            } else if (op === 'transpA') {
+                setMatrixResult([[A[0][0], A[1][0]], [A[0][1], A[1][1]]]);
+                document.getElementById('mat-res-title').textContent = 'Aᵀ';
+            } else if (op === 'transpB') {
+                setMatrixResult([[B[0][0], B[1][0]], [B[0][1], B[1][1]]]);
+                document.getElementById('mat-res-title').textContent = 'Bᵀ';
+            }
+        }
+
+        /* ════════════════════════════════════════════
+           INIT
+        ════════════════════════════════════════════ */
+        renderGeoForm();
+        renderConverterUnits();
+
+        function toggleMenu() {
+            document.querySelector('.nav-anim').classList.toggle('active');
+        }
+
+        /* Keyboard support for standard calculator */
+        document.addEventListener('keydown', e => {
+            const active = document.querySelector('.calc-panel.active');
+            if (!active) return;
+            const id = active.id;
+            if (id === 'panel-standard') {
+                if (/[0-9]/.test(e.key)) stdNum(e.key);
+                else if (e.key === '.') stdDot();
+                else if (e.key === '+') stdOp('+');
+                else if (e.key === '-') stdOp('-');
+                else if (e.key === '*') stdOp('*');
+                else if (e.key === '/') { e.preventDefault(); stdOp('/'); }
+                else if (e.key === 'Enter' || e.key === '=') stdEquals();
+                else if (e.key === 'Backspace') {
+                    if (stdVal.length <= 1 || stdVal === 'Error') stdVal = '0';
+                    else stdVal = stdVal.slice(0, -1);
+                    stdD().textContent = stdVal;
+                }
+                else if (e.key === 'Escape') stdClear();
+            }
+        });
+    </script>
+
+    <script>
+        function updateAuthNav() {
+            const loggedIn = localStorage.getItem('ms_logged_in') === 'true';
+            document.getElementById('nav-login').style.display = loggedIn ? 'none' : 'inline-block';
+            document.getElementById('nav-logout').style.display = loggedIn ? 'inline-block' : 'none';
+        }
+        function handleLogout() {
+            localStorage.removeItem('ms_logged_in');
+            localStorage.removeItem('ms_user_email');
+            updateAuthNav();
+        }
+        updateAuthNav();
+
+        document.querySelectorAll('.nav-anim a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    document.querySelector('.nav-anim').classList.remove('active');
+                    document.querySelector('.hamburger').classList.remove('open');
+                }
+            });
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+<script type="module" src="js/site.js"></script>
+</body>
+
+</html>

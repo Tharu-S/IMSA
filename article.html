@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Article - IMSA</title><link rel="icon" href="images/imsa-logo.jpeg">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/articles.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<script>if(localStorage.getItem("ms_theme")==="light")document.documentElement.dataset.theme="light"</script>
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body class="ar" data-page="view">
+<button class="ms-burger" onclick="msToggleNav()" aria-label="Menu">☰</button>
+    <aside class="ms-side" id="msSide">
+        <div class="ms-top"><a href="index.html" class="ms-brand"><img src="images/imsa-logo.jpeg" alt="IMSA"><span>IMSA</span></a><button class="ms-x" onclick="msToggleNav()" aria-label="Close menu">«</button></div>
+        <nav class="ms-links nav-anim">
+            <a href="index.html"><i>🏠</i>Home</a>
+            <a href="topics.html"><i>📚</i>Topics</a>
+            <a href="practice.html"><i>✏️</i>Practice</a>
+            <a href="calculators.html"><i>🧮</i>Calculators</a>
+            <a href="articles.html"><i>📝</i>Articles</a>
+            <a href="about.html"><i>ℹ️</i>About Us</a>
+            <a href="admin.html" id="nav-admin" style="display:none;"><i>🛡️</i>Admin</a>
+        </nav>
+        <div class="ms-bottom">
+            <a href="login.html" id="nav-login"><i>🔑</i>Login</a>
+            <a href="#" id="nav-logout" style="display:none;" onclick="handleLogout()"><i>🚪</i>Logout</a>
+            <button id="themeBtn" class="ms-theme" title="Dark / Light mode">🌙</button>
+        </div>
+    </aside>
+<main class="ar-wrap narrow"><a href="articles.html" style="color:#00a2ff">← All articles</a><div id="art"><p class="muted">Loading…</p></div>
+<section id="cmBox" hidden><h3>💬 Comments <span id="cmN"></span></h3><div id="cmList"></div>
+<div class="cm-form"><textarea id="cmT" rows="3" placeholder="Write a comment… (log in required)"></textarea><button id="cmB" class="ar-btn">Post comment</button></div></section></main>
+<footer><p>&copy; 2026 IMSA · Industrial Mathematics Students' Association</p></footer>
+<script type="module" src="js/site.js"></script>
+<script type="module" src="js/articles.js"></script>
+</body></html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Write - IMSA</title><link rel="icon" href="images/imsa-logo.jpeg">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/articles.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<script>if(localStorage.getItem("ms_theme")==="light")document.documentElement.dataset.theme="light"</script>
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body class="ar" data-page="write">
+<button class="ms-burger" onclick="msToggleNav()" aria-label="Menu">☰</button>
+    <aside class="ms-side" id="msSide">
+        <div class="ms-top"><a href="index.html" class="ms-brand"><img src="images/imsa-logo.jpeg" alt="IMSA"><span>IMSA</span></a><button class="ms-x" onclick="msToggleNav()" aria-label="Close menu">«</button></div>
+        <nav class="ms-links nav-anim">
+            <a href="index.html"><i>🏠</i>Home</a>
+            <a href="topics.html"><i>📚</i>Topics</a>
+            <a href="practice.html"><i>✏️</i>Practice</a>
+            <a href="calculators.html"><i>🧮</i>Calculators</a>
+            <a href="articles.html"><i>📝</i>Articles</a>
+            <a href="about.html"><i>ℹ️</i>About Us</a>
+            <a href="admin.html" id="nav-admin" style="display:none;"><i>🛡️</i>Admin</a>
+        </nav>
+        <div class="ms-bottom">
+            <a href="login.html" id="nav-login"><i>🔑</i>Login</a>
+            <a href="#" id="nav-logout" style="display:none;" onclick="handleLogout()"><i>🚪</i>Logout</a>
+            <button id="themeBtn" class="ms-theme" title="Dark / Light mode">🌙</button>
+        </div>
+    </aside>
+<main class="ar-wrap narrow"><div class="ar-hero"><h1>Write an <em>Article</em></h1><p>Your article will appear after an admin approves it.</p></div>
+<div id="wBox" hidden><div class="ar-form">
+<label>Title</label><input id="wt" maxlength="150" placeholder="e.g. Why does the Fibonacci sequence converge to the golden ratio?">
+<label>Category</label><select id="wc"></select>
+<label>Cover image URL (optional)</label><input id="wi" placeholder="https://...">
+<label>Content</label><textarea id="wb" placeholder="Write here. Use $x^2+y^2=z^2$ for maths, ## for a sub-heading, and a line like img:https://... to add a picture."></textarea>
+<label>Live preview</label><div class="pv" id="pv"></div>
+<button id="ws" class="ar-btn">Submit for approval</button></div></div>
+<div id="mineBox" hidden><h2 class="sec">My articles</h2><div id="mine"></div></div></main>
+<footer><p>&copy; 2026 IMSA · Industrial Mathematics Students' Association</p></footer>
+<script type="module" src="js/site.js"></script>
+<script type="module" src="js/articles.js"></script>
+</body></html>
